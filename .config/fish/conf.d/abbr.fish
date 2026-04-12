@@ -1,0 +1,7 @@
+abbr -a ff 'fastfetch'
+abbr -a open 'xdg-open'
+abbr -a b 'z ..'
+abbr -a man 'tldr'
+abbr -a wl 'wl-copy'
+abbr -a wlp 'wp-paste'
+abbr -a bp 'btop'

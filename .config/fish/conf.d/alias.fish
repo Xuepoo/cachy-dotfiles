@@ -1,0 +1,5 @@
+alias k='kubectl'
+alias yay='paru'
+alias sss='systemctl'
+alias jjj='journalctl'
+alias config='config=/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
