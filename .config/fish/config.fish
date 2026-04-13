@@ -1,7 +1,6 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 if status is-interactive
-    set -g fish_greeting ""
     fish_vi_key_bindings
 
     zoxide init fish | source

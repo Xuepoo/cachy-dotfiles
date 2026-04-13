@@ -1,5 +1,6 @@
 alias k='kubectl'
 alias yay='paru'
+alias nano='nvim'
+alias emacs='nvim'
 alias sss='systemctl'
 alias jjj='journalctl'
-alias config='config=/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
