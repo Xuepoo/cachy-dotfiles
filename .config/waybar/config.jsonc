@@ -161,8 +161,8 @@
       "format": {
         "month": "<span color='#ffead3'><b>{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>",
-      },
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
     },
      "on-click-right": "~/.local/share/cachyos/bin/cachyos-cmd-tzupdate"
   },
