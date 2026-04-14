@@ -1,23 +1,57 @@
+/* ~/.config/wofi/style.css - Catppuccin Mocha */
+
 window {
-    margin: 5px;
-    border: 2px solid #33ccff;
-    background-color: #1e1e2e;
+    margin: 0px;
+    border: 2px solid #89b4fa; /* 猫咪蓝边框 */
+    background-color: rgba(30, 30, 46, 0.8); /* 半透明基础背景 */
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
+    border-radius: 12px;
+}
+
+#outer-box {
+    margin: 5px;
+    padding: 10px;
 }
 
 #input {
-    margin: 5px;
+    margin: 5px 10px;
     border: none;
     color: #cdd6f4;
-    background-color: #313244;
+    background-color: #313244; /* 输入框略亮背景 */
+    border-radius: 8px;
+    padding: 10px;
 }
 
 #inner-box {
-    margin: 5px;
-    color: #cdd6f4;
+    margin: 10px;
 }
 
-#selected {
-    background-color: #45475a;
+#entry {
+    padding: 10px;
+    border-radius: 8px;
+    color: #cdd6f4;
+    transition: background-color 0.2s;
+}
+
+#entry:selected {
+    background-color: #45475a; /* 选中后的深色表面 */
+    color: #89b4fa; /* 选中文字变蓝 */
+    outline: none;
+}
+
+#text {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+/* 隐藏部分不需要的边框或虚线 */
+#entry:focus {
+    outline: none;
 }
