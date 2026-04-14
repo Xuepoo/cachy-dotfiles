@@ -9,14 +9,21 @@ binds {
     Mod+Shift+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    Mod+Return                          hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; }
+    Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
+    Mod+T                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
     Mod+CTRL+Return                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+B                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
+    Mod+Z                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Shift+Q                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
+    Mod+Shift+Y                         { spawn "/usr/bin/fish" "-c" "mpd_fav"; }
+    Mod+Shift+Z                         { spawn "mpc" "prev"; }
+    Mod+Shift+C                         { spawn "mpc" "toggle"; }
+    Mod+Shift+B                         { spawn "mpc" "next"; }
+
     // Please choose your own file manager.
-    Mod+E                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
+    Mod+E                               hotkey-overlay-title="File Manager: Dolphin" { spawn "dolphin"; }
+    Mod+A                               { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty -f -"; }
 
     // ─── Media Controls ───
     XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
@@ -52,6 +59,9 @@ binds {
     Mod+CTRL+K                          { move-window-up; }
     Mod+CTRL+Down                       { move-window-down; }
     Mod+CTRL+J                          { move-window-down; }
+
+    Mod+U                               { focus-workspace-down; }
+    Mod+I                               { focus-workspace-up; }
 
     Mod+Home                            { focus-column-first; }
     Mod+End                             { focus-column-last; }
