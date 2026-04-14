@@ -1,20 +1,22 @@
 [general]
 # 启动时不全屏
 fullscreen = false
-# 尝试让窗口浮动并匹配截图大小
+# 智能调整大小，使窗口匹配截图或图片尺寸
+resize = { mode = "smart" }
+# 尝试让窗口浮动
 floating-hack = true
 # 拷贝或保存后自动退出
 early-exit = true
 # 默认工具 (可选: pointer, crop, line, arrow, rectangle, text, marker, blur, brush)
-initial-tool = "brush"
+initial-tool = "pointer"
 # 拷贝到剪贴板的命令
 copy-command = "wl-copy"
 # 注释缩放因子
 annotation-size-factor = 2
 # 拷贝后是否同时保存到文件
 save-after-copy = false
-# 默认保存的文件名格式
-output-filename = "/tmp/satty-%Y-%m-%d_%H:%M:%S.png"
+# 默认保存的文件名格式 (包含日期子目录)
+output-filename = "/home/fuyu/Pictures/Screenshots/%Y-%m-%d/satty-%H:%M:%S.png"
 # 默认是否隐藏工具栏
 default-hide-toolbars = false
 # 矩形圆角半径 (0 为禁用)
