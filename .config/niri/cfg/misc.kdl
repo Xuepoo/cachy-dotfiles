@@ -8,6 +8,12 @@
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         XDG_CURRENT_DESKTOP "niri"
         XDG_SESSION_TYPE "wayland"
+
+        // NVIDIA Hardware Acceleration
+        GBM_BACKEND "nvidia-drm"
+        __GLX_VENDOR_LIBRARY_NAME "nvidia"
+        LIBVA_DRIVER_NAME "nvidia"
+        NVD_BACKEND "direct"
     }
 
     cursor {
@@ -18,6 +24,12 @@
     debug {
         // Allows notification actions and window activation from Noctalia.
         honor-xdg-activation-with-invalid-serial
+
+        // 指定 NVIDIA 显卡进行渲染 (通过 PCI ID 的 render 节点)
+        render-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
+        
+        // 建议同时开启此项以减少混合显卡下的渲染延迟
+        wait-for-frame-completion-before-queueing
     }
 
     hotkey-overlay {

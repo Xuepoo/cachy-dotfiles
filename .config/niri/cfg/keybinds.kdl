@@ -11,10 +11,11 @@ binds {
     // ─── Applications ───
     Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
     Mod+T                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
-    Mod+CTRL+Return                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+D                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+Z                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Shift+Q                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Period                          { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
 
     Mod+Shift+Y                         { spawn "/usr/bin/fish" "-c" "mpd_fav"; }
     Mod+Shift+Z                         { spawn "mpc" "prev"; }
@@ -126,7 +127,8 @@ binds {
     Mod+Shift+Equal                     { set-window-height "+10%"; }
 
     // ─── Modes ───
-    Mod+T                               { toggle-window-floating; }
+    Mod+V                               { toggle-window-floating; }
+    Mod+Shift+V                         { switch-focus-between-floating-and-tiling; }
     Mod+F                               { fullscreen-window; }
     Mod+W                               { toggle-column-tabbed-display; }
 
