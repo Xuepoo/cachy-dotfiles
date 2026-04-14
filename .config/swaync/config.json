@@ -1,0 +1,58 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "application",
+  "control-center-width": 280,
+  "control-center-height": 450,
+  "control-center-margin-top": 40,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "notification-2fa-action": true,
+  "notification-inline-replies": true,
+  "notification-window-width": 280,
+  "notification-icon-size": 32,
+  "notification-body-image-height": 80,
+  "notification-body-image-width": 160,
+  "timeout": 3,
+  "timeout-low": 3,
+  "timeout-critical": 3,
+  "fit-to-screen": false,
+  "relative-timestamps": true,
+  "notification-visibility": {
+    "app-name": {
+      "state": "show",
+      "value": []
+    }
+  },
+  "scripts": {},
+  "widgets": [
+    "label",
+    "mpris",
+    "title",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": "Notification Center"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12
+    }
+  }
+}
