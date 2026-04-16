@@ -1,10 +1,12 @@
 /*
- * Waybar Style Sheet - Cleaned up GTK CSS
+ * Waybar Style Sheet - Final Optimized Version
  */
 
-/* 如果你确实有颜色定义，可以在此定义。这里为了不报错，预设几个基础变量 */
 @define-color background rgba(17, 17, 27, 0.95);
 @define-color foreground #cdd6f4;
+@define-color accent #89b4fa;
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
 
 * {
   border: none;
@@ -15,13 +17,13 @@
 
 tooltip {
   background: @background;
-  border: 1px solid alpha(@foreground, 0.5);
+  border: 1px solid alpha(@foreground, 0.2);
   border-radius: 8px;
 }
 
 tooltip label {
   color: @foreground;
-  font-size: 10px;
+  padding: 4px;
 }
 
 window#waybar {
@@ -33,122 +35,99 @@ window#waybar {
   border-radius: 8px;
   margin: 1px 2px 4px 2px;
   background-color: @background;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* 模块分组样式 */
 .modules-right,
 .modules-center,
 #window {
   margin: 4px 2px;
-  padding: 0 4px;
+  padding: 0 6px;
   border-radius: 8px;
-  border: 2px solid @foreground;
+  border: 1px solid alpha(@foreground, 0.2);
+  background: alpha(@foreground, 0.05);
 }
 
 #workspaces {
   margin: 4px;
+  padding: 0 2px;
   border-radius: 10px;
-  background-color: @foreground;
+  background-color: alpha(@foreground, 0.1);
 }
 
 #workspaces button {
-  padding: 0 10px;
-  margin: 1px 2px;
-  border-radius: 8px;
-  background-color: @background;
+  padding: 0 8px;
+  margin: 2px;
+  border-radius: 6px;
+  background-color: transparent;
   color: @foreground;
   transition: all 0.3s ease-in-out;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 #workspaces button.active {
+  background-color: @accent;
+  color: @background;
   opacity: 1.0;
-  min-width: 30px;
+  min-width: 24px;
 }
 
 #workspaces button:hover {
-  opacity: 0.9;
+  background-color: alpha(@accent, 0.3);
+  opacity: 0.8;
 }
 
-#workspaces button.empty {
-  opacity: 0.3;
-}
-
-/* 统一各模块基础样式 */
-#hyprland-window,
+/* 通用模块基础样式 */
 #custom-cava,
 #tray,
 #group-tray-expander,
-#custom-cpu,
-#custom-gpu,
+#cpu,
 #memory,
 #battery,
 #network,
 #bluetooth,
-#pulseaudio,
-#custom-power_profile,
-#backlight {
-  margin: 0 3px;
-  padding: 0 2px;
-  min-width: 16px;
-}
-
-/* Power Profile Colors */
-#custom-power_profile.performance {
-  color: #f38ba8; /* Red */
-}
-#custom-power_profile.balanced {
-  color: #f9e2af; /* Yellow */
-}
-#custom-power_profile.power-saver {
-  color: #a6e3a1; /* Green */
-}
-
 #custom-fcitx5,
-#memory,
-
-/* CPU/GPU 颜色状态 */
-#custom-cpu.low, #custom-gpu.low {
-  color: #a6e3a1; /* Green */
+#backlight,
+#clock,
+#idle_inhibitor,
+#custom-updatespacman,
+#custom-voxtype,
+#custom-notification {
+  margin: 0 2px;
+  padding: 0 2px;
+  min-width: 14px;
 }
 
-#custom-cpu.medium, #custom-gpu.medium {
-  color: #f9e2af; /* Yellow */
-}
-
-#custom-cpu.high, #custom-gpu.high {
-  color: #fab387; /* Orange */
-}
-
-#custom-cpu.critical, #custom-gpu.critical {
-  color: #f38ba8; /* Red */
-}
-
+/* CAVA 特殊样式 */
 #custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
-  font-size: 14px;
-  letter-spacing: -2px;
-  min-width: 60px;
-  padding: 0;
-  margin: 0;
+  font-size: 16px;
+  letter-spacing: -4px;
+  color: @accent;
+  min-width: 100px;
 }
 
-#custom-fcitx5 {
-  color: @foreground;
-}
-
+/* 录音指示 */
 #custom-voxtype.recording {
-  color: #f38ba8;
+  color: @red;
 }
 
-/* 动画关键帧 - GTK CSS 的特殊处理 */
+/* 电池状态 */
+#battery.warning { color: #fab387; }
+#battery.critical { color: @red; }
+#battery.charging { color: @green; }
+
+/* 动画 */
 @keyframes blink {
-  to {
-    color: @background;
-  }
+  to { opacity: 0.5; }
 }
 
 #idle_inhibitor.activated {
-  color: #a6e3a1;
+  color: @green;
   animation: blink 1s linear infinite alternate;
+}
+
+#custom-notification {
+  color: @accent;
 }

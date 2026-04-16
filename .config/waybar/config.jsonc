@@ -21,33 +21,12 @@
     "pulseaudio",
     "custom/voxtype",
     "memory",
-    "custom/cpu",
-    "custom/gpu",
+    "custom/updatespacman",
+    "cpu",
     "idle_inhibitor",
     "battery",
-    "custom/power_profile",
     "custom/notification"
   ],
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "󱅫",
-      "none": "󰂚",
-      "dnd-notification": "󱅫",
-      "dnd-none": "󰂛",
-      "inhibited-notification": "󱅫",
-      "inhibited-none": "󰂚",
-      "dnd-inhibited-notification": "󱅫",
-      "dnd-inhibited-none": "󰂛"
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -92,13 +71,6 @@
       " - ": ""
     }
   },
-  "custom/power_profile": {
-    "exec": "~/.config/waybar/scripts/power_profile.sh",
-    "on-click": "~/.config/waybar/scripts/power_profile.sh next",
-    "return-type": "json",
-    "interval": 2,
-    "tooltip": true
-  },
   "custom/voxtype": {
     "exec": "pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'Mute: yes' && echo '{\"alt\": \"idle\"}' || echo '{\"alt\": \"recording\"}'",
     "return-type": "json",
@@ -112,14 +84,8 @@
     "on-click-right": "pavucontrol",
     "on-click": "pavucontrol"
   },
-  "custom/notification-silencing-indicator": {
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "exec": "echo '{\"text\":\"󰝟\"}'",
-    "signal": 10,
-    "return-type": "json"
-  },
   "custom/cava": {
-    "exec": "sleep 2 && cava -p ~/.config/cava/config | sed -u 's/[^0-7;]//g; s/;//g; s/0/ /g; s/1/▂/g; s/2/▃/g; s/3/▄/g; s/4/▅/g; s/5/▆/g; s/6/▇/g; s/7/█/g'",
+    "exec": "sleep 1 && cava -p ~/.config/cava/config | sed -u 's/;//g;s/0/ /g;s/1/▂/g;s/2/▃/g;s/3/▄/g;s/4/▅/g;s/5/▆/g;s/6/▇/g;s/7/█/g'",
     "tooltip": false
   },
   "custom/fcitx5": {
@@ -129,23 +95,9 @@
     "on-click": "fcitx5-remote -s",
     "tooltip": false
   },
-  "custom/update": {
-    "format": "{} {icon}",
-    "return-type": "json",
-    "exec": "checkupdates",
-    "format-icons": {
-      "has-updates": "",
-      "updated": "󰂪"
-    },
-    "tooltip-format": "System updates available",
-    "signal": 7,
-    "interval": 3600
-  },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}",
-    "on-click": "~/.config/waybar/scripts/theme_toggle.sh",
-    "tooltip-format": "{percent}%",
+    "format": "{percent}% {icon}",
     "format-icons": [
       "🌑",
       "🌘",
@@ -154,18 +106,19 @@
       "🌕"
     ]
   },
-  "custom/cpu": {
-    "exec": "~/.config/waybar/scripts/cpu_stats.sh",
+  "custom/updatespacman": {
+    "format": "{} {icon}",
     "return-type": "json",
-    "format": "{}",
-    "interval": 2,
-    "on-click": "ghostty -e btop"
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰂪"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
-  "custom/gpu": {
-    "exec": "~/.config/waybar/scripts/gpu_stats.sh",
-    "return-type": "json",
-    "format": "{}",
+  "cpu": {
     "interval": 2,
+    "format": "󰍛 {usage}%",
     "on-click": "ghostty -e btop"
   },
   "memory": {
@@ -256,17 +209,6 @@
       "critical": 10
     }
   },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "当前模式: {profile}\nCPU驱动: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
-  },
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
@@ -298,6 +240,26 @@
         "󰕾"
       ]
     }
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱅫",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󱅫",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
   "group/tray-expander": {
     "orientation": "inherit",
