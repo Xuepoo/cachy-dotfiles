@@ -79,29 +79,58 @@ window#waybar {
 #custom-cava,
 #tray,
 #group-tray-expander,
-#cpu,
+#custom-cpu,
+#custom-gpu,
 #memory,
 #battery,
 #network,
 #bluetooth,
-#custom-fcitx5,
-#backlight,
-#clock,
-#idle_inhibitor,
-#custom-updatespacman,
-#custom-update,
-#custom-voxtype,
-#custom-notification-silencing-indicator {
-  margin: 0 2px;
+#pulseaudio,
+#custom-power_profile,
+#backlight {
+  margin: 0 3px;
   padding: 0 2px;
-  min-width: 14px;
+  min-width: 16px;
+}
+
+/* Power Profile Colors */
+#custom-power_profile.performance {
+  color: #f38ba8; /* Red */
+}
+#custom-power_profile.balanced {
+  color: #f9e2af; /* Yellow */
+}
+#custom-power_profile.power-saver {
+  color: #a6e3a1; /* Green */
+}
+
+#custom-fcitx5,
+#memory,
+
+/* CPU/GPU 颜色状态 */
+#custom-cpu.low, #custom-gpu.low {
+  color: #a6e3a1; /* Green */
+}
+
+#custom-cpu.medium, #custom-gpu.medium {
+  color: #f9e2af; /* Yellow */
+}
+
+#custom-cpu.high, #custom-gpu.high {
+  color: #fab387; /* Orange */
+}
+
+#custom-cpu.critical, #custom-gpu.critical {
+  color: #f38ba8; /* Red */
 }
 
 #custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
-  font-size: 16px;
-  letter-spacing: -4px;
-  min-width: 100px;
+  font-size: 14px;
+  letter-spacing: -2px;
+  min-width: 60px;
+  padding: 0;
+  margin: 0;
 }
 
 #custom-fcitx5 {
