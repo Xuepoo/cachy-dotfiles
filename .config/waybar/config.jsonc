@@ -208,12 +208,13 @@
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
+    "format-disabled": "󰤮",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
-    "spacing": 1,
-    "on-click": "nm-connection-editor"
+    "on-click": "nm-connection-editor",
+    "on-click-right": "nmcli radio wifi | grep -q 'enabled' && nmcli radio wifi off || nmcli radio wifi on"
   },
   "battery": {
     "format": "{icon} {capacity}%",
@@ -269,6 +270,7 @@
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
+    "format-off": "󰂲",
     "format-connected": " {num_connections}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
