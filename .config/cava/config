@@ -1,0 +1,27 @@
+[general]
+framerate = 75
+autosens = 1
+bars = 24
+bar_spacing = 0
+bar_width = 1
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7
+ascii_data_separator = ;
+
+[smoothing]
+integral = 85
+monstercat = 1
+waves = 0
+gravity = 120
+ignore = 0
+
+[color]
+# Use default colors
