@@ -31,7 +31,7 @@
         vertical_align: Center,
         horizontal_align: Center,
     ),
-    lyrics_dir: Some("~/Music"),
+    lyrics_dir: Some("/mnt/data/Music/Vocaloid"),
     lyrics: (
         show_synced_only: false,
         show_untranslated: true,
