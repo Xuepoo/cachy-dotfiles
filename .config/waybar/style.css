@@ -1,29 +1,34 @@
 /*
- * Waybar Style Sheet - Final Optimized Version
+ * Waybar Style Sheet - Refined Version
  */
 
-@define-color background rgba(17, 17, 27, 0.95);
+@define-color background rgba(20, 20, 30, 0.9);
 @define-color foreground #cdd6f4;
 @define-color accent #89b4fa;
+@define-color mauve #cba6f7;
 @define-color red #f38ba8;
 @define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
 
 * {
   border: none;
   font-family: 'CaskaydiaMono Nerd Font Propo', 'CaskaydiaMono Nerd Font', monospace;
-  font-size: 12px;
+  font-size: 13px;
   min-height: 0;
 }
 
+/* Tooltip 样式修复 - 确保悬停时信息可见 */
 tooltip {
   background: @background;
-  border: 1px solid alpha(@foreground, 0.2);
+  border: 1px solid @accent;
   border-radius: 8px;
 }
 
 tooltip label {
   color: @foreground;
-  padding: 4px;
+  padding: 6px;
 }
 
 window#waybar {
@@ -32,53 +37,46 @@ window#waybar {
 }
 
 #waybar > box {
-  border-radius: 8px;
-  margin: 1px 2px 4px 2px;
+  border-radius: 10px;
+  margin: 4px 8px 0 8px;
   background-color: @background;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid alpha(@accent, 0.2);
 }
 
-/* 模块分组样式 */
+/* 模块分组间距调优 */
+.modules-left,
 .modules-right,
-.modules-center,
-#window {
-  margin: 4px 2px;
-  padding: 0 6px;
-  border-radius: 8px;
-  border: 1px solid alpha(@foreground, 0.2);
-  background: alpha(@foreground, 0.05);
+.modules-center {
+  padding: 0 4px;
 }
 
 #workspaces {
-  margin: 4px;
+  margin: 3px;
   padding: 0 2px;
-  border-radius: 10px;
-  background-color: alpha(@foreground, 0.1);
+  border-radius: 6px;
+  background-color: @surface0;
 }
 
 #workspaces button {
-  padding: 0 8px;
-  margin: 2px;
-  border-radius: 6px;
-  background-color: transparent;
+  padding: 0 6px;
+  margin: 1px;
+  border-radius: 4px;
   color: @foreground;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.5;
+  transition: all 0.2s ease;
 }
 
 #workspaces button.active {
   background-color: @accent;
   color: @background;
-  opacity: 1.0;
-  min-width: 24px;
+  min-width: 26px;
 }
 
 #workspaces button:hover {
   background-color: alpha(@accent, 0.3);
-  opacity: 0.8;
 }
 
-/* 通用模块基础样式 */
+/* 通用模块样式 - 调整间距并增加悬停反馈 */
+#custom-cava,
 #custom-cava,
 #tray,
 #group-tray-expander,
@@ -87,47 +85,80 @@ window#waybar {
 #battery,
 #network,
 #bluetooth,
-#custom-fcitx5,
 #backlight,
 #clock,
 #idle_inhibitor,
+#pulseaudio.microphone,
+#window,
+#pulseaudio,
+#mpris,
 #custom-updatespacman,
-#custom-voxtype,
+#custom-darkmode,
 #custom-notification {
-  margin: 0 2px;
-  padding: 0 2px;
-  min-width: 14px;
+  padding: 0 7px;
+  margin: 3px 1px;
+  border-radius: 6px; /* 统一圆角 */
+  background-color: transparent;
+  transition: all 0.2s ease;
 }
 
-/* CAVA 特殊样式 */
+/* CAVA 特殊样式 (恢复原版设计) */
 #custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
   font-size: 16px;
   letter-spacing: -4px;
   color: @accent;
-  min-width: 100px;
 }
 
+/* 鼠标悬停背景反馈 */
+#custom-cava:hover,
+#tray:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-fcitx5:hover,
+#backlight:hover,
+#clock:hover,
+#idle_inhibitor:hover,
+#pulseaudio.microphone:hover,
+#window:hover,
+#pulseaudio:hover,
+#mpris:hover,
+#custom-notification:hover {
+  background-color: @surface1;
+}
+
+#mpris {
+  color: @green;
+  margin-left: 5px;
+}
+
+/* 颜色分配 */
+#cpu { color: @mauve; }
+#memory { color: @accent; }
+#battery { color: @green; }
+#network { color: @mauve; }
+#clock { color: @foreground; font-weight: bold; }
+#custom-notification { color: @yellow; }
+
 /* 录音指示 */
-#custom-voxtype.recording {
+#pulseaudio.microphone.recording {
   color: @red;
 }
 
-/* 电池状态 */
-#battery.warning { color: #fab387; }
-#battery.critical { color: @red; }
+/* 状态颜色 */
+#cpu.warning, #battery.warning { color: @yellow; }
+#cpu.critical, #battery.critical { color: @red; }
 #battery.charging { color: @green; }
-
-/* 动画 */
-@keyframes blink {
-  to { opacity: 0.5; }
-}
 
 #idle_inhibitor.activated {
   color: @green;
-  animation: blink 1s linear infinite alternate;
 }
 
-#custom-notification {
+#custom-expand-icon {
   color: @accent;
+  padding-right: 3px;
 }
+

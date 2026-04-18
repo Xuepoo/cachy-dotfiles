@@ -14,14 +14,12 @@
   ],
   "modules-right": [
     "group/tray-expander",
-    "custom/fcitx5",
     "backlight",
     "network",
     "bluetooth",
     "pulseaudio",
-    "custom/voxtype",
+    "pulseaudio#microphone",
     "memory",
-    "custom/updatespacman",
     "cpu",
     "idle_inhibitor",
     "battery",
@@ -30,7 +28,7 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "tooltip": false,
+    "tooltip": true,
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
@@ -52,6 +50,8 @@
   "hyprland/window": {
     "format": "{title} - {class}",
     "max-length": 30,
+    "tooltip": true,
+    "tooltip-format": "Title: {title}\nClass: {class}",
     "rewrite": {
       "(.*) — Mozilla Firefox": " 󰈹 $1 ",
       "(.*) - Mozilla Firefox": " 󰈹 $1 ",
@@ -71,33 +71,45 @@
       " - ": ""
     }
   },
-  "custom/voxtype": {
-    "exec": "pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'Mute: yes' && echo '{\"alt\": \"idle\"}' || echo '{\"alt\": \"recording\"}'",
-    "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-      "idle": "󰍭",
-      "recording": "󰍬",
-      "transcribing": "󰔟"
+  "mpris": {
+    "player": "mpd",
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{status_icon} <i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "▶",
+      "spotify": "",
+      "firefox": "󰈹",
+      "chromium": "",
+      "mpd": ""
     },
-    "tooltip": true,
-    "on-click-right": "pavucontrol",
-    "on-click": "pavucontrol"
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "on-click": "mpc prev",
+    "on-click-right": "mpc next",
+    "on-click-middle": "mpc toggle",
+    "max-length": 50
   },
   "custom/cava": {
-    "exec": "sleep 1 && cava -p ~/.config/cava/config | sed -u 's/;//g;s/0/ /g;s/1/▂/g;s/2/▃/g;s/3/▄/g;s/4/▅/g;s/5/▆/g;s/6/▇/g;s/7/█/g'",
-    "tooltip": false
+    "exec": "cava -p ~/.config/waybar/cava.conf | sed -u 's/;//g;s/0/ /g;s/1/▂/g;s/2/▃/g;s/3/▄/g;s/4/▅/g;s/5/▆/g;s/6/▇/g;s/7/█/g'",
+    "format": "{}",
+    "tooltip": false,
+    "on-click": "mpc prev",
+    "on-click-right": "mpc next",
+    "on-click-middle": "mpc toggle"
   },
-  "custom/fcitx5": {
-    "exec": "fcitx5-remote -n | sed 's/pinyin/ZH/;s/keyboard-us/EN/'",
-    "interval": 1,
-    "format": "󰗊 {}",
-    "on-click": "fcitx5-remote -s",
-    "tooltip": false
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
+    "on-click": "pavucontrol",
+    "on-click-right": "pamixer --default-source -t",
+    "tooltip-format": "{source_volume}% - {source_desc}"
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
+    "format": "{icon}",
+    "tooltip-format": "{percent}%",
     "format-icons": [
       "🌑",
       "🌘",
@@ -105,6 +117,11 @@
       "🌖",
       "🌕"
     ]
+  },
+  "custom/darkmode": {
+    "format": "󰔎",
+    "on-click": "~/.config/scripts/toggle-theme.sh || darkman toggle",
+    "tooltip": false
   },
   "custom/updatespacman": {
     "format": "{} {icon}",
@@ -118,7 +135,12 @@
   },
   "cpu": {
     "interval": 2,
-    "format": "󰍛 {usage}%",
+    "format": "󰍛",
+    "tooltip": true,
+    "states": {
+      "warning": 70,
+      "critical": 90
+    },
     "on-click": "ghostty -e btop"
   },
   "memory": {
