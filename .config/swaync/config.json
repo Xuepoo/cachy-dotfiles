@@ -7,7 +7,7 @@
   "layer-shell": true,
   "cssPriority": "application",
   "control-center-width": 280,
-  "control-center-height": 450,
+  "control-center-height": 650,
   "control-center-margin-top": 40,
   "control-center-margin-bottom": 10,
   "control-center-margin-right": 10,
@@ -25,8 +25,8 @@
   "relative-timestamps": true,
   "notification-visibility": {
     "app-name": {
-      "state": "show",
-      "value": []
+      "state": "hide",
+      "value": ["Spotify", "spotify", "Chromium", "Firefox"]
     }
   },
   "scripts": {},
