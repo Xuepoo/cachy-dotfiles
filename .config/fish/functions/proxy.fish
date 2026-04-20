@@ -7,22 +7,15 @@ function proxy --description "Toggle network proxy for current session"
     if test "$argv[1]" = "on"
         # 设置环境变量 (使用 -gx 代表 Global 和 Export)
         set -gx http_proxy  $proxy_addr
-        set -gx https_proxy "https://$proxy_host:$proxy_port"
+        set -gx https_proxy $proxy_addr
         set -gx ftp_proxy   $proxy_addr
-        set -gx all_proxy   "socks5://$proxy_host:$proxy_port"
+        set -gx all_proxy   $proxy_addr
         set -gx no_proxy    "localhost,127.0.0.1,localaddress,.localdomain.com"
 
-	git config --global http.proxy $proxy_addr
-	git config --global https.proxy $proxy_addr
-        
+        git config --global http.proxy  $proxy_addr
+        git config --global https.proxy $proxy_addr
+         
         echo "✅ Proxy enabled: $proxy_addr"
-        # 测试连接速度 (可选)
-	# curl -I --connect-timeout 2 https://www.google.com > /dev/null
-	# if test $status -eq 0
-	# echo "🚀 Connection to Google successful!"
-	# else
-	# echo "⚠️ Proxy set but Google is unreachable."
-	# end
 
     else if test "$argv[1]" = "off"
         # 清除环境变量
@@ -31,6 +24,8 @@ function proxy --description "Toggle network proxy for current session"
         set -e ftp_proxy
         set -e all_proxy
         set -e no_proxy
+        git config --global --unset http.proxy
+        git config --global --unset https.proxy
         echo "❌ Proxy disabled"
 
     else

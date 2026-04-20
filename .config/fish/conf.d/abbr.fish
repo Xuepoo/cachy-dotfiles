@@ -1,4 +1,3 @@
-abbr -a ff 'fastfetch'
 abbr -a open 'xdg-open'
 abbr -a b 'z ..'
 abbr -a man 'tldr'
