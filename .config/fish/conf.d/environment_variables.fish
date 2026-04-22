@@ -6,8 +6,8 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx SYSTEMD_EDITOR nvim
 
-set -x PNPM_HOME $HOME/.local/share/pnpm
-fish_add_path $HOME/.local/share/npm-global/bin
-fish_add_path $PNPM_HOME
 fish_add_path $HOME/.local/bin
-
+fish_add_path $HOME/.local/share/npm-global/bin
+fish_add_path $HOME/.local/share/pnpm
+fish_add_path $HOME/.local/share/bun/bin
+fish_add_path $HOME/.local/share/cargo/bin
