@@ -57,11 +57,11 @@ return {
         end,
         desc = "Open Oil File Explorer",
       },
-      -- 打开上级目录
+      -- 打开当前文件所在目录
       {
         "-",
         function()
-          require("oil").open_parent()
+          require("oil").open()
         end,
         desc = "Open Parent Directory",
       },

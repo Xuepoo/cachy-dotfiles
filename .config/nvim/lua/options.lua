@@ -12,18 +12,17 @@ opt.relativenumber = true
 -- 这会让光标保持在屏幕中间 1/3 区域
 local function set_dynamic_scrolloff()
   local height = vim.api.nvim_win_get_height(0)
-  -- 计算 1/3 窗口高度作为 scrolloff
-  local scrolloff_value = math.floor(height / 3)
+  -- 计算 1/4 窗口高度作为 scrolloff，使光标保持在中间 1/2 区域
+  local scrolloff_value = math.floor(height / 4)
   vim.wo.scrolloff = scrolloff_value
 end
 
--- 初始设置
 set_dynamic_scrolloff()
 
 -- 当窗口大小改变时更新 scrolloff
-vim.api.nvim_create_autocmd({ "VimResized", "WinEnter", "BufEnter" }, {
+vim.api.nvim_create_autocmd("VimResized", {
   callback = set_dynamic_scrolloff,
-  desc = "动态调整 scrolloff 使光标保持在中间 1/3 区域",
+  desc = "动态调整 scrolloff 使光标保持在中间 1/2 区域",
 })
 
 -- 不同文件类型的缩进配置

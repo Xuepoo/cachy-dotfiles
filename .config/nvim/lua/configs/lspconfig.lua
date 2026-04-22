@@ -20,6 +20,7 @@ local servers = {
   "rust_analyzer",
   "clangd",
   "jdtls",
+  "texlab",
   "lemminx",
   "marksman",
   "taplo",
