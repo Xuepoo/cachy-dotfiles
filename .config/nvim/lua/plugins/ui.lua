@@ -10,35 +10,44 @@ return {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     opts = function()
-      -- don't use animate when scrolling with the mouse
-      local mouse_scrolled = false
-      for _, scroll in ipairs({ "Up", "Down" }) do
-        local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set({ "", "i" }, key, function()
-          mouse_scrolled = true
-          return key
-        end, { expr = true })
-      end
-
+      -- ...
       local animate = require("mini.animate")
       return {
         resize = {
           timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
         },
         scroll = {
-          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-          subscroll = animate.gen_subscroll.equal({
-            predicate = function(total_scroll)
-              if mouse_scrolled then
-                mouse_scrolled = false
-                return false
-              end
-              return total_scroll > 1
-            end,
-          }),
+          enable = false, -- 保持滚动动画禁用，防止 1/4 处卡顿
+        },
+        cursor = {
+          enable = false, -- 关闭 mini.animate 的光标动画，避免与 beacon 冲突
         },
       }
     end,
+  },
+  {
+    "danilamihailov/beacon.nvim",
+    event = "VeryLazy",
+    config = function()
+      -- 强制设置最高优先级的亮黄色
+      vim.cmd([[
+        highlight Beacon guibg=#FFFF00 guifg=#000000 gui=bold
+      ]])
+
+      require("beacon").setup {
+        enable = true,
+        size = 20,         -- 稍微加宽一点（20个字符）
+        fadeout_ms = 400,  -- 稍微延长一点（400ms），让拖尾更清晰
+        minimal_jump = 0,  -- 0 距离触发，确保 hjkl 有效
+      }
+    end,
+  },
+  {
+    "rainbowhxch/accelerated-jk.nvim",
+    keys = {
+      { "j", "<Plug>(accelerated_jk_gj)", mode = "n" },
+      { "k", "<Plug>(accelerated_jk_gk)", mode = "n" },
+    },
   },
   {
     "folke/todo-comments.nvim",

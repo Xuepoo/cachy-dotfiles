@@ -8,42 +8,14 @@ return {
     },
   },
 
-  -- ── Git 行级变更标记 ───────────────────────────────────────────────
+  -- ── 词间跳转优化 ───────────────────────────────────────────────
+  -- 让 w, e, b 能识别 camelCase, snake_case
   {
-    "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
-    opts = {
-      signs = {
-        add          = { text = "▎" },
-        change       = { text = "▎" },
-        delete       = { text = "" },
-        topdelete    = { text = "" },
-        changedelete = { text = "▎" },
-        untracked    = { text = "▎" },
-      },
-      on_attach = function(buf)
-        local gs = package.loaded.gitsigns
-        local map = vim.keymap.set
-
-        -- Hunk 跳转
-        map("n", "]h", gs.next_hunk,  { buffer = buf, desc = "Next Git Hunk" })
-        map("n", "[h", gs.prev_hunk,  { buffer = buf, desc = "Prev Git Hunk" })
-
-        -- Hunk 操作
-        map("n", "<leader>hs", gs.stage_hunk,        { buffer = buf, desc = "Stage Hunk" })
-        map("n", "<leader>hr", gs.reset_hunk,        { buffer = buf, desc = "Reset Hunk" })
-        map("n", "<leader>hu", gs.undo_stage_hunk,   { buffer = buf, desc = "Undo Stage Hunk" })
-        map("n", "<leader>hS", gs.stage_buffer,      { buffer = buf, desc = "Stage Buffer" })
-        map("n", "<leader>hR", gs.reset_buffer,      { buffer = buf, desc = "Reset Buffer" })
-
-        -- 查看差异 & blame
-        map("n", "<leader>hb", function() gs.blame_line { full = true } end, { buffer = buf, desc = "Blame Line" })
-        map("n", "<leader>hd", gs.diffthis,          { buffer = buf, desc = "Diff This" })
-        map("n", "<leader>hD", function() gs.diffthis "~" end, { buffer = buf, desc = "Diff This ~" })
-
-        -- 选中 hunk（文本对象）
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { buffer = buf, desc = "Select Hunk" })
-      end,
+    "chrisgrieser/nvim-spider",
+    keys = {
+      { "w", "<cmd>lua require('spider').motion('w')<cr>", mode = { "n", "o", "x" }, desc = "Spider-w" },
+      { "e", "<cmd>lua require('spider').motion('e')<cr>", mode = { "n", "o", "x" }, desc = "Spider-e" },
+      { "b", "<cmd>lua require('spider').motion('b')<cr>", mode = { "n", "o", "x" }, desc = "Spider-b" },
     },
   },
 
