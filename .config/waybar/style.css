@@ -118,21 +118,14 @@ window#waybar {
 #battery:hover,
 #network:hover,
 #bluetooth:hover,
-#custom-fcitx5:hover,
 #backlight:hover,
 #clock:hover,
 #idle_inhibitor:hover,
 #pulseaudio.microphone:hover,
 #window:hover,
 #pulseaudio:hover,
-#mpris:hover,
 #custom-notification:hover {
   background-color: @surface1;
-}
-
-#mpris {
-  color: @green;
-  margin-left: 5px;
 }
 
 /* 颜色分配 */
