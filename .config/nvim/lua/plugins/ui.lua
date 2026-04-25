@@ -10,7 +10,6 @@ return {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     opts = function()
-      -- ...
       local animate = require("mini.animate")
       return {
         resize = {
@@ -20,25 +19,29 @@ return {
           enable = false, -- 保持滚动动画禁用，防止 1/4 处卡顿
         },
         cursor = {
-          enable = false, -- 关闭 mini.animate 的光标动画，避免与 beacon 冲突
+          enable = true,
+          -- 极其顺滑的光标移动动画 (80ms 左右最丝滑)
+          timing = animate.gen_timing.linear({ duration = 80, unit = "total" }),
         },
       }
     end,
   },
   {
-    "danilamihailov/beacon.nvim",
+    "mvllow/modes.nvim",
     event = "VeryLazy",
     config = function()
-      -- 强制设置最高优先级的亮黄色
-      vim.cmd([[
-        highlight Beacon guibg=#FFFF00 guifg=#000000 gui=bold
-      ]])
-
-      require("beacon").setup {
-        enable = true,
-        size = 20,         -- 稍微加宽一点（20个字符）
-        fadeout_ms = 400,  -- 稍微延长一点（400ms），让拖尾更清晰
-        minimal_jump = 0,  -- 0 距离触发，确保 hjkl 有效
+      require("modes").setup {
+        colors = {
+          copy = "#f5c2e7",
+          delete = "#f38ba8",
+          insert = "#fab387",
+          visual = "#FFFF00", -- 亮黄色
+        },
+        line_opacity = 0.15,
+        set_cursorline = true,
+        set_cursorblink = true,
+        set_number = true,
+        ignore_filetypes = { "NvimTree", "TelescopePrompt" },
       }
     end,
   },
