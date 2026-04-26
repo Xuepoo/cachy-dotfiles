@@ -8,6 +8,12 @@ local opt = vim.opt
 
 opt.relativenumber = true
 
+-- 光标设置：确保块状光标下的字符可见
+-- n-v-c: 块状，i: 条状
+-- 增加 blend=20 (如果终端支持) 或者使用高亮组反转
+vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50"
+vim.api.nvim_set_hl(0, "Cursor", { reverse = true })
+
 -- 动态 scrolloff：根据窗口高度设置滚动偏移量
 -- 使光标保持在屏幕中间 1/2 区域（上下各留 1/4）
 local function set_dynamic_scrolloff()
@@ -66,10 +72,9 @@ vim.api.nvim_create_autocmd("FileType", {
     local indent_size = 2
     local use_tab = false
 
-    -- 4 空格缩进
+    -- 只有以下文件类型强制使用 4 空格缩进
     if vim.tbl_contains({
-      "lua", "yaml", "toml", "html", "htmldjango", "vue", "svelte",
-      "rust", "go", "c", "cpp", "java", "python", "ruby", "php",
+      "rust", "c", "cpp", "java", "python", "ruby", "php",
       "sh", "bash", "zsh",
     }, filetype) then
       indent_size = 4
@@ -80,6 +85,7 @@ vim.api.nvim_create_autocmd("FileType", {
       "make", "go",
     }, filetype) then
       use_tab = true
+      indent_size = 4 -- go 推荐展示宽度为 4
     end
 
     vim.opt_local.shiftwidth = indent_size
