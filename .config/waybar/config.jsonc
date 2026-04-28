@@ -53,13 +53,8 @@
     "tooltip": true,
     "tooltip-format": "Title: {title}\nClass: {class}",
     "rewrite": {
-      "(.*) — Mozilla Firefox": " 󰈹 $1 ",
-      "(.*) - Mozilla Firefox": " 󰈹 $1 ",
       "(.*) - firefox": " 󰈹 $1 ",
-      "(.*) - Firefox": " 󰈹 $1 ",
       "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-      "(.*) - ghostty": " 󰊠 $1 ",
-      "(.*) - Ghostty": " 󰊠 $1 ",
       "(.*) - nvim": "  $1 ",
       "(.*) - fish": "  [$1] ",
       "(.*) - code": " 󰨞 $1 ",
