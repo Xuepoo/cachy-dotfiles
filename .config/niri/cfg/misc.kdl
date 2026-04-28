@@ -25,11 +25,8 @@
         // Allows notification actions and window activation from Noctalia.
         honor-xdg-activation-with-invalid-serial
 
-        // 指定 NVIDIA 显卡进行渲染 (通过 PCI ID 的 render 节点)
-        render-drm-device "/dev/dri/by-path/pci-0000:01:00.0-render"
-        
-        // 建议同时开启此项以减少混合显卡下的渲染延迟
-        wait-for-frame-completion-before-queueing
+        // 允许屏幕撕裂以获得最低延迟 (游戏必备)
+        allow-tearing
     }
 
     hotkey-overlay {
