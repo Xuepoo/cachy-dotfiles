@@ -7,13 +7,14 @@ show_all=false
 print_command=true
 insensitive=true
 allow_images=true
-# 居中显示
 location=center
-# 隐藏滚动条
 no_actions=true
 halign=fill
 orientation=vertical
-# 失去焦点自动退出 (在大多数合成器下生效)
 key_exit=Escape
-# 隐藏搜索栏前的提示符，使外观更简洁
 prompt=
+matching=fuzzy
+sort_order=default
+# 开启以下选项可能有助于焦点处理
+layer=overlay
+filter_rate=100
