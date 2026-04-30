@@ -1,5 +1,7 @@
 alias k='kubectl'
 alias yay='paru'
+alias vi='nvim'
+alias vim='nvim'
 alias nano='nvim'
 alias emacs='nvim'
 alias sss='systemctl'
