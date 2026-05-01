@@ -5,6 +5,7 @@ set -x HF_ENDPOINT https://hf-mirror.com
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx SYSTEMD_EDITOR nvim
+set -gx MOZ_ENABLE_WAYLAND 1
 
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.local/share/npm-global/bin
