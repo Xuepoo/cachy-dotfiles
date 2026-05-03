@@ -16,11 +16,10 @@ return {
           timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
         },
         scroll = {
-          enable = false, -- 保持滚动动画禁用，防止 1/4 处卡顿
+          enable = false,
         },
         cursor = {
           enable = true,
-          -- 极其顺滑的光标移动动画 (80ms 左右最丝滑)
           timing = animate.gen_timing.linear({ duration = 80, unit = "total" }),
         },
       }
@@ -35,7 +34,7 @@ return {
           copy = "#f5c2e7",
           delete = "#f38ba8",
           insert = "#fab387",
-          visual = "#FFFF00", -- 亮黄色
+          visual = "#FFFF00",
         },
         line_opacity = 0.15,
         set_cursorline = true,
@@ -61,9 +60,7 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
     opts = {},
-    -- stylua: ignore
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
