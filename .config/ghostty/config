@@ -6,11 +6,9 @@ shell-integration = detect
 shell-integration-features = cursor,title,path
 mouse-hide-while-typing = true
 cursor-style-blink = true
-macos-titlebar-style = hidden
 confirm-close-surface = true
 focus-follows-mouse = true
 quick-terminal-animation-duration = 0.08
-macos-icon = official
 scrollback-limit = 10000
 # This is the configuration file for Ghostty.
 #
