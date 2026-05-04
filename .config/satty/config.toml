@@ -16,7 +16,7 @@ annotation-size-factor = 2
 # 拷贝后是否同时保存到文件
 save-after-copy = false
 # 默认保存的文件名格式 (包含日期子目录)
-output-filename = "/home/fuyu/Pictures/Screenshots/%Y-%m-%d/satty-%H:%M:%S.png"
+output-filename = "/home/fuyu/Pictures/Screenshots/satty-%H:%M:%S.png"
 # 默认是否隐藏工具栏
 default-hide-toolbars = false
 # 矩形圆角半径 (0 为禁用)
