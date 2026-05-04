@@ -1,0 +1,5 @@
+timestamp, utilization.gpu [%], utilization.memory [%], memory.used [MiB], temperature.gpu, power.draw [W], clocks.current.graphics [MHz]
+2026/05/04 16:33:50.023, 25 %, 7 %, 1055 MiB, 54, 17.37 W, 810 MHz
+2026/05/04 16:33:51.029, 22 %, 7 %, 1055 MiB, 54, 14.30 W, 1050 MHz
+2026/05/04 16:33:52.029, 18 %, 5 %, 1055 MiB, 54, 11.50 W, 1050 MHz
+2026/05/04 16:33:53.029, 24 %, 7 %, 1055 MiB, 54, 14.02 W, 1080 MHz

@@ -1,29 +1,37 @@
 # XDG Base Directory specification compliance
-
-set -gx MAVEN_OPTS "-Dmaven.repo.local=$HOME/.local/share/maven/repository"
-set -gx GRADLE_USER_HOME "$HOME/.local/share/gradle"
-set -gx _JAVA_OPTIONS "-Duser.home=$HOME/.local/share/java"
-set -gx CARGO_HOME "$HOME/.local/share/cargo"
-set -gx RUSTUP_HOME "$HOME/.local/share/rustup"
-set -gx GOPATH "$HOME/.local/share/go"
-set -gx BUN_INSTALL "$HOME/.local/share/bun"
-set -gx NPM_CONFIG_USERCONFIG "$HOME/.config/npm/npmrc"
-set -gx DOCKER_CONFIG "$HOME/.config/docker"
-set -gx PIP_CONFIG_FILE "$HOME/.config/pip/pip.conf"
-set -gx ANDROID_USER_HOME "$HOME/.local/share/android"
-set -gx KUBECONFIG "$HOME/.config/kube/config"
-set -gx WGETRC "$HOME/.config/wgetrc"
-set -gx ATUIN_CONFIG_DIR "$HOME/.config/atuin"
-set -gx ATUIN_DATA_DIR "$HOME/.local/share/atuin"
-set -gx ATUIN_LOG_DIR "$HOME/.local/state/atuin"
-set -gx DOTNET_CLI_HOME "$HOME/.local/share/dotnet"
-set -gx CUDA_CACHE_DIR "$HOME/.cache/nv"
-
 # Default XDG variables
 set -q XDG_CONFIG_HOME; or set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -q XDG_DATA_HOME; or set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -q XDG_STATE_HOME; or set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -q XDG_CACHE_HOME; or set -gx XDG_CACHE_HOME "$HOME/.cache"
 
-# Ollama models path
-set -gx OLLAMA_MODELS "$DATA_HOME/Model/ollama/models"
+# XDG config
+set -gx MC_CONFIG_DIR "$XDG_CONFIG_HOME/mcli"
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
+set -gx KUBECONFIG "$XDG_CONFIG_HOME/kube/config"
+set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
+set -gx ATUIN_CONFIG_DIR "$XDG_CONFIG_HOME/atuin"
+set -gx PIP_CONFIG_FILE "$XDG_CONFIG_HOME/pip/pip.conf"
+set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
+set -gx CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
+set -gx COPILOT_HOME "$XDG_CONFIG_HOME/copilot"
+set -gx GEMINI_CONFIG_DIR "$XDG_CONFIG_HOME/gemini"
+
+# XDG shared data
+set -gx MAVEN_OPTS "-Dmaven.repo.local=$XDG_DATA_HOME/maven/repository"
+set -gx GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
+set -gx _JAVA_OPTIONS "-Duser.home=$XDG_DATA_HOME/java"
+set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
+set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+set -gx GOPATH "$XDG_DATA_HOME/go"
+set -gx BUN_INSTALL "$XDG_DATA_HOME/bun"
+set -gx ANDROID_USER_HOME "$XDG_DATA_HOME/android"
+set -gx ATUIN_DATA_DIR "$XDG_DATA_HOME/atuin"
+set -gx DOTNET_CLI_HOME "$XDG_DATA_HOME/dotnet"
+
+# XDG state
+set -gx ATUIN_LOG_DIR "$XDG_STATE_HOME/atuin"
+
+# XDG cache
+set -gx CUDA_CACHE_DIR "$XDG_CACHE_HOME/nv"
+set -gx COPILOT_CACHE_HOME "$XDG_CACHE_HOME/copilot"

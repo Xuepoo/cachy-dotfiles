@@ -1,5 +1,6 @@
 alias k='kubectl'
 alias yay='paru'
+alias mc='mcli'
 alias vi='nvim'
 alias vim='nvim'
 alias nano='nvim'

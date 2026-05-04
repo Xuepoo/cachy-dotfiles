@@ -1,5 +1,6 @@
 abbr -a open 'xdg-open'
 abbr -a b 'z ..'
+abbr -a s 'spf'
 abbr -a man 'tldr'
 abbr -a wl 'wl-copy'
 abbr -a wlp 'wl-paste'
