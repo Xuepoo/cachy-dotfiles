@@ -7,6 +7,7 @@ require "nvchad.options"
 local opt = vim.opt
 
 opt.relativenumber = true
+opt.conceallevel = 2 -- Required for plugins like Snacks.image to hide text and show images
 
 -- 光标设置：确保块状光标下的字符可见
 -- n-v-c: 块状，i: 条状

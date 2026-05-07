@@ -5,6 +5,19 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+      -- 开启图片和公式渲染支持 (Ghostty / Kitty Image Protocol)
+      image = {
+        force_kitty = true,
+        enabled = true,
+        doc = { 
+          enabled = true,
+          inline = true,
+          float = true,
+        },
+        math = { 
+          enabled = true,
+        },
+      },
       -- Dashboard 配置
       dashboard = {
         preset = {
