@@ -13,4 +13,5 @@ fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.local/share/npm-global/bin
 fish_add_path $HOME/.local/share/pnpm
 fish_add_path $HOME/.local/share/bun/bin
+fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path $HOME/.local/share/cargo/bin
