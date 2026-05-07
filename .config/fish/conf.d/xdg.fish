@@ -4,6 +4,7 @@ set -q XDG_CONFIG_HOME; or set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -q XDG_DATA_HOME; or set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -q XDG_STATE_HOME; or set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -q XDG_CACHE_HOME; or set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -q XDG_BIN_HOME; or set -gx XDG_BIN_HOME "$HOME/.local/bin"
 
 # XDG config
 set -gx MC_CONFIG_DIR "$XDG_CONFIG_HOME/mcli"
@@ -16,6 +17,7 @@ set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
 set -gx COPILOT_HOME "$XDG_CONFIG_HOME/copilot"
 set -gx GEMINI_CONFIG_DIR "$XDG_CONFIG_HOME/gemini"
+set -gx OPENCODE_CONFIG_DIR "$XDG_CONFIG_HOME/opencode"
 
 # XDG shared data
 set -gx MAVEN_OPTS "-Dmaven.repo.local=$XDG_DATA_HOME/maven/repository"
