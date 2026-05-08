@@ -6,6 +6,10 @@ set -q XDG_STATE_HOME; or set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -q XDG_CACHE_HOME; or set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -q XDG_BIN_HOME; or set -gx XDG_BIN_HOME "$HOME/.local/bin"
 
+if not contains "$XDG_DATA_HOME" $XDG_DATA_DIRS
+    set -gx XDG_DATA_DIRS "$XDG_DATA_HOME" $XDG_DATA_DIRS
+end
+
 # XDG config
 set -gx MC_CONFIG_DIR "$XDG_CONFIG_HOME/mcli"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"

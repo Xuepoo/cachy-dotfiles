@@ -22,7 +22,8 @@ function proxy --description "Toggle network proxy for current session"
         set -gx http_proxy  $proxy_addr
         set -gx https_proxy $proxy_addr
         set -gx ftp_proxy   $proxy_addr
-        set -gx all_proxy   "socks5://$proxy_host:$proxy_port" # 很多现代工具更喜欢走 socks5，这里顺便帮你把 all_proxy 优化为 socks5
+        set -gx all_proxy   "socks5://$proxy_host:$proxy_port"
+        set -gx grpc_proxy  $proxy_addr
         set -gx no_proxy    "localhost,127.0.0.1,localaddress,.localdomain.com"
         git config --global http.proxy  $proxy_addr
         git config --global https.proxy $proxy_addr
