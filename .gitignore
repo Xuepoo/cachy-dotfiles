@@ -1,15 +1,23 @@
-.env
+.ruff_cache
 __pycache__
 *.pyc
 test*
+node_modules
 nohup.out
 GEMINI.md
 AGENTS.md
 CLAUDE.md
+fish
+.bashrc
+.zshrc
 .agent
 .opencode
 .claude
 .gemini
+.atuin
+.aws
+.ssh
+.env
 
 proxy*
 private*
