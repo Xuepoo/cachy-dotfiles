@@ -1,4 +1,5 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+function fish_greeting
+end
 
 if status is-interactive
     fish_vi_key_bindings
@@ -9,9 +10,3 @@ end
 starship init fish | source
 tv init fish | source 
 atuin init fish | source
-    
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
