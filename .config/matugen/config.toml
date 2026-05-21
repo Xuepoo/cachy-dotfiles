@@ -5,6 +5,7 @@ default_mode = "dark"
 [templates.waybar]
 input_path = "~/.config/waybar/colors-template.css"
 output_path = "~/.config/waybar/colors.css"
+post_hook = "touch ~/.config/waybar/style.css && killall -USR2 waybar"
 
 [templates.hyprland]
 input_path = "~/.config/hypr/colors-template.conf"

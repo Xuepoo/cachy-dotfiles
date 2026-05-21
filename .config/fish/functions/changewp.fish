@@ -42,7 +42,7 @@ function changewp --description "Change wallpaper and dynamically regenerate col
     /usr/bin/awww img "$wp_path"
     
     # 2. Generate theme using Matugen
-    /home/fuyu/.local/share/cargo/bin/matugen image --source-color-index 0 "$wp_path"
+    /home/fuyu/.local/share/cargo/bin/matugen -t scheme-vibrant image --source-color-index 0 "$wp_path"
 
     echo "Theme successfully regenerated!"
 end

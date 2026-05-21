@@ -43,8 +43,8 @@ window#waybar {
 #waybar > box {
   border-radius: 10px;
   margin: 4px 8px 0 8px;
-  background-color: @background;
-  border: 1px solid alpha(@accent, 0.2);
+  background-color: alpha(@background, 0.8);
+  border: 1px solid alpha(@accent, 0.25);
 }
 
 /* Module group spacing optimization */
@@ -80,34 +80,33 @@ window#waybar {
 }
 
 /* Common module styles - adjust spacing and hover feedback */
-#custom-cava,
-#custom-cava,
-#tray,
-#group-tray-expander,
-#custom-cpu,
-#memory,
-#battery,
-#network,
-#bluetooth,
-#backlight,
-#clock,
-#idle_inhibitor,
-#pulseaudio.microphone,
-#window,
-#pulseaudio,
-#mpris,
-#custom-updatespacman,
-#custom-darkmode,
-#custom-notification {
-  padding: 0 7px;
-  margin: 3px 1px;
+#custom-cava, .custom-cava,
+#tray, .tray,
+#tray-expander, .tray-expander,
+#custom-cpu, .custom-cpu,
+#memory, .memory,
+#battery, .battery,
+#network, .network,
+#bluetooth, .bluetooth,
+#backlight, .backlight,
+#clock, .clock,
+#idle_inhibitor, .idle_inhibitor,
+#pulseaudio.microphone, .pulseaudio.microphone,
+#window, .window,
+#pulseaudio, .pulseaudio,
+#mpris, .mpris,
+#custom-updatespacman, .custom-updatespacman,
+#custom-darkmode, .custom-darkmode,
+#custom-notification, .custom-notification {
+  padding: 0 6px;
+  margin: 3px 3px;
   border-radius: 6px; /* Unified border radius */
   background-color: transparent;
   transition: all 0.2s ease;
 }
 
 /* CAVA special styles (restore original design) */
-#custom-cava {
+#custom-cava, .custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
   font-size: 16px;
   letter-spacing: -4px;
@@ -115,42 +114,42 @@ window#waybar {
 }
 
 /* Mouse hover background feedback */
-#custom-cava:hover,
-#tray:hover,
-#custom-cpu:hover,
-#memory:hover,
-#battery:hover,
-#network:hover,
-#bluetooth:hover,
-#backlight:hover,
-#clock:hover,
-#idle_inhibitor:hover,
-#pulseaudio.microphone:hover,
-#window:hover,
-#pulseaudio:hover,
-#custom-notification:hover {
+#custom-cava:hover, .custom-cava:hover,
+#tray:hover, .tray:hover,
+#custom-cpu:hover, .custom-cpu:hover,
+#memory:hover, .memory:hover,
+#battery:hover, .battery:hover,
+#network:hover, .network:hover,
+#bluetooth:hover, .bluetooth:hover,
+#backlight:hover, .backlight:hover,
+#clock:hover, .clock:hover,
+#idle_inhibitor:hover, .idle_inhibitor:hover,
+#pulseaudio.microphone:hover, .pulseaudio.microphone:hover,
+#window:hover, .window:hover,
+#pulseaudio:hover, .pulseaudio:hover,
+#custom-notification:hover, .custom-notification:hover {
   background-color: @surface1;
 }
 
 /* Color allocation */
-#custom-cpu {
-  color: @green;
+#custom-cpu, .custom-cpu {
+  color: @accent;
 }
-#memory {
-  color: @green;
-}
-#battery {
-  color: @green;
-}
-#network {
+#memory, .memory {
   color: @mauve;
 }
-#clock {
+#battery, .battery {
+  color: @green;
+}
+#network, .network {
+  color: @yellow;
+}
+#clock, .clock {
   color: @foreground;
   font-weight: bold;
 }
-#custom-notification {
-  color: @yellow;
+#custom-notification, .custom-notification {
+  color: @red;
 }
 
 /* Recording indicator */
