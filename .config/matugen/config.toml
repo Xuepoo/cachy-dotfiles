@@ -57,5 +57,9 @@ output_path = "~/.config/rmpc/config.ron"
 input_path = "~/.config/rmpc/themes/matugen-template.ron"
 output_path = "~/.config/rmpc/themes/matugen.ron"
 
+[templates.tealdeer]
+input_path = "~/.config/tealdeer/config-template.toml"
+output_path = "~/.config/tealdeer/config.toml"
+
 
 
