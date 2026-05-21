@@ -28,8 +28,8 @@ function togglemode --description "Toggle between light and dark theme modes usi
     echo "Theme successfully regenerated in $theme_mode mode!"
 
     if test "$theme_mode" = "light"
-        notify-send "主题模式切换" "当前已切换至：白天模式 (Light Mode) ☀️"
+        notify-send "Theme Switch" "Switched to Light Mode ☀️"
     else
-        notify-send "主题模式切换" "当前已切换至：黑夜模式 (Dark Mode) 🌙"
+        notify-send "Theme Switch" "Switched to Dark Mode 🌙"
     end
 end

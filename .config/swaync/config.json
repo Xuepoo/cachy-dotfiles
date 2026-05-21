@@ -23,12 +23,6 @@
   "timeout-critical": 3,
   "fit-to-screen": false,
   "relative-timestamps": true,
-  "notification-visibility": {
-    "app-name": {
-      "state": "hide",
-      "value": ["Spotify", "spotify", "Chromium", "Firefox"]
-    }
-  },
   "scripts": {},
   "widgets": [
     "label",

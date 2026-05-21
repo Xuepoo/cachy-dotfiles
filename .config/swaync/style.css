@@ -4,10 +4,11 @@
   font-family: "CaskaydiaMono Nerd Font", sans-serif;
   /* 移除全局 transition，仅在必要处添加 */
   transition: none; 
+  color: @fg-color;
 }
 
 .control-center {
-  background: rgba(17, 17, 27, 0.95); /* 稍微提高不透明度，减少混合计算 */
+  background: alpha(@bg-color, 0.95); /* 稍微提高不透明度，减少混合计算 */
   border-radius: 12px;
   border: 1px solid @border-color;
   /* 移除 box-shadow */
@@ -18,7 +19,7 @@
 
 .notification {
   /* 保持背景简单 */
-  background: rgba(30, 30, 46, 0.9);
+  background: alpha(@bg-notification, 0.9);
   border-radius: 8px;
   margin: 4px 8px;
   padding: 8px;
