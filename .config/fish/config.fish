@@ -8,6 +8,12 @@ if status is-interactive
         source ~/.config/fish/colors.fish
     end
 
+    function _reload_colors --on-variable theme_mode
+        if test -f ~/.config/fish/colors.fish
+            source ~/.config/fish/colors.fish
+        end
+    end
+
     zoxide init fish | source
 end
 
