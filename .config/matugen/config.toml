@@ -49,5 +49,13 @@ input_path = "~/.config/fish/colors-template.fish"
 output_path = "~/.config/fish/colors.fish"
 post_hook = "fish -c 'source ~/.config/fish/colors.fish'"
 
+[templates.rmpc_config]
+input_path = "~/.config/rmpc/config-template.ron"
+output_path = "~/.config/rmpc/config.ron"
+
+[templates.rmpc_theme]
+input_path = "~/.config/rmpc/themes/matugen-template.ron"
+output_path = "~/.config/rmpc/themes/matugen.ron"
+
 
 
