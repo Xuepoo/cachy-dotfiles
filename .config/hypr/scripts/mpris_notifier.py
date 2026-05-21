@@ -1,7 +1,34 @@
 #!/usr/bin/env python3
+# ~/.config/hypr/scripts/mpris_notifier.py - Asynchronous media change notifications daemon
 import subprocess
 import sys
 import time
+import threading
+
+# Thread safety lock
+state_lock = threading.Lock()
+
+# Dictionary to store active timers: {player: Timer}
+active_timers = {}
+
+# Dictionary to store last successfully notified track: {player: (artist, title)}
+last_notified_tracks = {}
+
+def is_ad(player, title, artist):
+    player_lower = player.lower()
+    title_lower = title.lower() if title else ""
+    artist_lower = artist.lower() if artist else ""
+    
+    # Spotify advertisement filters
+    if "spotify" in player_lower:
+        if title_lower in ["advertisement", "ad", "spotify"] or artist_lower == "spotify" or not artist.strip():
+            return True
+            
+    # Generic advertisement filters
+    if title_lower in ["advertisement", "ad"]:
+        return True
+        
+    return False
 
 def send_notification(player, title, artist, status):
     # Normalize player name
@@ -39,38 +66,86 @@ def send_notification(player, title, artist, status):
     except Exception:
         pass
 
-def main():
-    cmd = ["playerctl", "--follow", "metadata", "--format", "{{status}}::{{player_name}}::{{artist}}::{{title}}"]
-    try:
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
-    except Exception:
-        print("Failed to start playerctl", file=sys.stderr)
+def handle_play_timer_fire(player, title, artist):
+    with state_lock:
+        # Mark as successfully notified
+        last_notified_tracks[player] = (artist, title)
+        # Clean up the timer reference
+        if player in active_timers:
+            del active_timers[player]
+            
+    send_notification(player, title, artist, "Playing")
+
+def process_event(status, player, artist, title):
+    status_lower = status.lower()
+    player_strip = player.strip()
+    
+    if not player_strip or status_lower not in ["playing", "paused"]:
+        return
+        
+    if is_ad(player_strip, title, artist):
         return
 
-    last_track = None
-    last_status = None
+    track_id = (artist.strip(), title.strip())
 
-    for line in proc.stdout:
-        line = line.strip()
-        if not line:
-            continue
-        parts = line.split("::")
-        if len(parts) < 4:
-            continue
-        status, player, artist, title = parts[0], parts[1], parts[2], parts[3]
-        
-        if not title and not artist:
-            continue
+    with state_lock:
+        # Cancel any pending playing timer for this player
+        if player_strip in active_timers:
+            active_timers[player_strip].cancel()
+            del active_timers[player_strip]
+
+        if status_lower == "playing":
+            # Check if this track is already playing and was already notified
+            if last_notified_tracks.get(player_strip) == track_id:
+                return
+                
+            # Schedule a playing notification with a debounce of 1.2 seconds to filter hovers/scans
+            timer = threading.Timer(1.2, handle_play_timer_fire, args=[player_strip, title, artist])
+            active_timers[player_strip] = timer
+            timer.start()
             
-        track_id = (player, artist, title)
-        
-        if track_id != last_track or status != last_status:
-            if status.lower() in ["playing", "paused"]:
-                send_notification(player, title, artist, status)
-            last_track = track_id
-            last_status = status
+        elif status_lower == "paused":
+            # Only send a pause notification if the user was previously notified of it playing
+            if last_notified_tracks.get(player_strip) == track_id:
+                send_notification(player_strip, title, artist, "Paused")
+                # Clear last notified so we don't duplicate pause alerts
+                del last_notified_tracks[player_strip]
+
+def main():
+    while True:
+        cmd = ["playerctl", "--follow", "metadata", "--format", "{{status}}::{{player_name}}::{{artist}}::{{title}}"]
+        try:
+            proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
+        except Exception:
+            time.sleep(3)
+            continue
+
+        last_event = None
+
+        for line in proc.stdout:
+            line = line.strip()
+            if not line:
+                continue
+            parts = line.split("::")
+            if len(parts) < 4:
+                continue
+            status, player, artist, title = parts[0], parts[1], parts[2], parts[3]
+            
+            if not title.strip() and not artist.strip():
+                continue
+                
+            event = (status.lower(), player.strip(), artist.strip(), title.strip())
+            if event == last_event:
+                continue
+            last_event = event
+            
+            process_event(status, player, artist, title)
+
+        # If playerctl exits (e.g. no active players), wait and retry to keep the daemon alive permanently
+        proc.wait()
+        time.sleep(3)
 
 if __name__ == "__main__":
-    # Wait for desktop services to load
+    # Wait for desktop environment services to load on startup
     time.sleep(3)
     main()
