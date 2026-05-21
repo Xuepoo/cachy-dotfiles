@@ -28,4 +28,13 @@ output_path = "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
 input_path = "~/.config/starship-template.toml"
 output_path = "~/.config/starship.toml"
 
+[templates.gtk4]
+input_path = "~/.config/gtk-4.0/gtk-template.css"
+output_path = "~/.config/gtk-4.0/gtk.css"
+
+[templates.gtk3]
+input_path = "~/.config/gtk-4.0/gtk-template.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
+
+
 
