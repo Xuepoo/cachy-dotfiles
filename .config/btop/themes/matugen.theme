@@ -1,0 +1,75 @@
+# ~/.config/btop/themes/matugen-template.theme
+# Matugen generated btop theme
+
+# Main background, empty for terminal transparency
+theme[main_bg]=""
+
+# Main text color
+theme[main_fg]="#f6dce0"
+
+# Title color for boxes
+theme[title]="#ffb1c4"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#ffb4ab"
+
+# Background and foreground for selected items
+theme[selected_bg]="#352629"
+theme[selected_fg]="#ffb1c4"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#a18b8f"
+
+# Color of text in active graphs
+theme[graph_text]="#d9c0c5"
+
+# Background color of volume/percentage meters
+theme[meter_bg]="#2a1c1f"
+
+# Miscellaneous process colors
+theme[proc_misc]="#f5b7b3"
+
+# Box borders
+theme[cpu_box]="#ffb1c4"
+theme[mem_box]="#f5b7b3"
+theme[net_box]="#ffb59b"
+theme[proc_box]="#ffb1c4"
+
+# Divider lines
+theme[div_line]="#544246"
+
+# Temperature graphs
+theme[temp_start]="#ffb1c4"
+theme[temp_mid]="#f5b7b3"
+theme[temp_end]="#ffb4ab"
+
+# CPU graphs
+theme[cpu_start]="#ffb1c4"
+theme[cpu_mid]="#f5b7b3"
+theme[cpu_end]="#ffb4ab"
+
+# Memory graphs
+theme[free_start]="#f5b7b3"
+theme[free_mid]="#ffb1c4"
+theme[free_end]="#ffb4ab"
+
+theme[cached_start]="#f5b7b3"
+theme[cached_mid]="#ffb1c4"
+theme[cached_end]="#ffb4ab"
+
+theme[available_start]="#f5b7b3"
+theme[available_mid]="#ffb1c4"
+theme[available_end]="#ffb4ab"
+
+theme[used_start]="#f5b7b3"
+theme[used_mid]="#ffb1c4"
+theme[used_end]="#ffb4ab"
+
+# Network graphs
+theme[download_start]="#ffb1c4"
+theme[download_mid]="#f5b7b3"
+theme[download_end]="#ffb59b"
+
+theme[upload_start]="#ffb1c4"
+theme[upload_mid]="#f5b7b3"
+theme[upload_end]="#ffb59b"

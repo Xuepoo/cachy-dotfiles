@@ -21,8 +21,8 @@ output_path = "~/.config/swaync/colors.css"
 post_hook = "swaync-client -rs"
 
 [templates.yazi]
-input_path = "~/.config/yazi/flavors/noctalia.yazi/flavor-template.toml"
-output_path = "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
+input_path = "~/.config/yazi/flavors/matugen.yazi/flavor-template.toml"
+output_path = "~/.config/yazi/flavors/matugen.yazi/flavor.toml"
 
 [templates.starship]
 input_path = "~/.config/starship-template.toml"
@@ -35,6 +35,14 @@ output_path = "~/.config/gtk-4.0/gtk.css"
 [templates.gtk3]
 input_path = "~/.config/gtk-4.0/gtk-template.css"
 output_path = "~/.config/gtk-3.0/gtk.css"
+
+[templates.btop]
+input_path = "~/.config/btop/themes/matugen-template.theme"
+output_path = "~/.config/btop/themes/matugen.theme"
+
+[templates.cava]
+input_path = "~/.config/cava/config_tui-template"
+output_path = "~/.config/cava/config_tui"
 
 
 
