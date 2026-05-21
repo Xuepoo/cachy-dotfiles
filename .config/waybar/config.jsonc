@@ -21,16 +21,19 @@
     "pulseaudio#microphone",
     "memory",
     "cpu",
+    "temperature",
     "idle_inhibitor",
     "battery",
     "custom/notification"
   ],
   "hyprland/workspaces": {
-    "disable-scroll": true,
+    "disable-scroll": false,
     "all-outputs": true,
     "tooltip": true,
     "format": "{icon}",
     "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
     "format-icons": {
       "urgent": "",
       "default": "",
@@ -72,7 +75,9 @@
     "tooltip": false,
     "on-click": "mpc prev",
     "on-click-right": "mpc next",
-    "on-click-middle": "mpc toggle"
+    "on-click-middle": "mpc toggle",
+    "on-scroll-up": "mpc volume +2",
+    "on-scroll-down": "mpc volume -2"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
@@ -80,6 +85,9 @@
     "format-source-muted": "󰍭",
     "on-click": "pavucontrol",
     "on-click-right": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 2",
+    "on-scroll-down": "pamixer --default-source -d 2",
+    "scroll-step": 5,
     "tooltip-format": "{source_volume}% - {source_desc}"
   },
   "backlight": {
@@ -96,17 +104,38 @@
   },
   "cpu": {
     "interval": 2,
-    "format": "󰍛",
+    "format": "󰍛 {usage}%",
     "tooltip": true,
+    "tooltip-format": "<big>CPU {usage}%</big>\n<tt>{avg_frequency} GHz</tt>\n\n<big>各核心使用率：</big>\n<tt>Core 0: {core0}%  Core 1: {core1}%\nCore 2: {core2}%  Core 3: {core3}%\nCore 4: {core4}%  Core 5: {core5}%\nCore 6: {core6}%  Core 7: {core7}%</tt>",
+    "tooltip-use-markup": true,
     "states": {
-      "warning": 70,
-      "critical": 90
+      "good": 0,
+      "warning": 50,
+      "critical": 80
     },
     "on-click": "ghostty -e btm"
   },
+  "temperature": {
+    "interval": 2,
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
+    "tooltip": true,
+    "tooltip-format": "<big>CPU 温度</big>\n<tt>Package: {temperatureC}°C</tt>",
+    "tooltip-use-markup": true
+  },
   "memory": {
     "interval": 2,
-    "format": "{percentage}% ",
+    "format": " {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "<big>内存 {percentage}%</big>\n<tt>{used:0.1f} GiB / {total:0.1f} GiB</tt>\n\n<big>Swap：</big>\n<tt>{swapPercentage}% - {swapUsed:0.1f} GiB / {swapTotal:0.1f} GiB</tt>",
+    "tooltip-use-markup": true,
+    "states": {
+      "good": 0,
+      "warning": 70,
+      "critical": 90
+    },
     "on-click": "ghostty -e btm"
   },
   "clock": {

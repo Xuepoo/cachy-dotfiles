@@ -29,6 +29,17 @@ tooltip {
 tooltip label {
   color: @foreground;
   padding: 6px;
+  font-size: 13px;
+}
+
+tooltip label big {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+tooltip label tt {
+  font-family: 'CaskaydiaMono Nerd Font', monospace;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -82,6 +93,7 @@ window#waybar {
 #group-tray-expander,
 #cpu,
 #memory,
+#temperature,
 #battery,
 #network,
 #bluetooth,
@@ -115,6 +127,7 @@ window#waybar {
 #tray:hover,
 #cpu:hover,
 #memory:hover,
+#temperature:hover,
 #battery:hover,
 #network:hover,
 #bluetooth:hover,
@@ -129,8 +142,8 @@ window#waybar {
 }
 
 /* 颜色分配 */
-#cpu { color: @mauve; }
-#memory { color: @accent; }
+#cpu { color: @green; }
+#memory { color: @green; }
 #battery { color: @green; }
 #network { color: @mauve; }
 #clock { color: @foreground; font-weight: bold; }
@@ -142,8 +155,12 @@ window#waybar {
 }
 
 /* 状态颜色 */
-#cpu.warning, #battery.warning { color: @yellow; }
-#cpu.critical, #battery.critical { color: @red; }
+#cpu.warning { color: @yellow; }
+#cpu.critical { color: @red; }
+#memory.warning { color: @yellow; }
+#memory.critical { color: @red; }
+#battery.warning { color: @yellow; }
+#battery.critical { color: @red; }
 #battery.charging { color: @green; }
 
 #idle_inhibitor.activated {
