@@ -15,8 +15,10 @@ copy-command = "wl-copy"
 annotation-size-factor = 2
 # 拷贝后是否同时保存到文件
 save-after-copy = false
-# 默认保存的文件名格式 (包含日期子目录)
-output-filename = "/home/fuyu/Pictures/Screenshots/satty-%H:%M:%S.png"
+# 默认保存的文件名格式 - 按年月日分目录，文件名包含完整时间戳
+output-filename = "~/Pictures/Screenshots/%Y-%m-%d/satty-%Y-%m-%d_%H-%M-%S.png"
+# 按下 Enter 时：先保存到文件，再把文件路径复制到剪贴板
+actions-on-enter = ["save-to-file", "copy-filepath-to-clipboard"]
 # 默认是否隐藏工具栏
 default-hide-toolbars = false
 # 矩形圆角半径 (0 为禁用)
