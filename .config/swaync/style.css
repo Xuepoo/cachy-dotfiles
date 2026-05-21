@@ -34,6 +34,16 @@
   transition: background 150ms ease, border-color 150ms ease;
 }
 
+.notification-default-action,
+.notification-action {
+  background: transparent;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: transparent;
+}
+
 /* 仅针对必要的交互保留微小的动画 */
 .widget-title > button:hover {
   background: @accent;
