@@ -60,3 +60,4 @@ scrollback-limit = 10000
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 theme = noctalia
+config-file = colors.conf

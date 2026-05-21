@@ -1,0 +1,20 @@
+# ~/.config/matugen/config.toml
+[config]
+default_mode = "dark"
+
+[templates.waybar]
+input_path = "~/.config/waybar/colors-template.css"
+output_path = "~/.config/waybar/colors.css"
+
+[templates.hyprland]
+input_path = "~/.config/hypr/colors-template.conf"
+output_path = "~/.config/hypr/colors.conf"
+
+[templates.ghostty]
+input_path = "~/.config/ghostty/colors-template.conf"
+output_path = "~/.config/ghostty/colors.conf"
+
+[templates.swaync]
+input_path = "~/.config/swaync/colors-template.css"
+output_path = "~/.config/swaync/colors.css"
+post_hook = "swaync-client -rs"

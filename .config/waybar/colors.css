@@ -1,0 +1,10 @@
+/* ~/.config/waybar/colors-template.css */
+@define-color background #111418;
+@define-color foreground #e1e2e8;
+@define-color accent #a2c9fe;
+@define-color mauve #bbc7db;
+@define-color red #ffb4ab;
+@define-color green #1c4875;
+@define-color yellow #d8bde4;
+@define-color surface0 #191c20;
+@define-color surface1 #272a2f;

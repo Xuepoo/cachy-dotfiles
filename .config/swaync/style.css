@@ -1,5 +1,4 @@
-@define-color border-color #313244;
-@define-color accent #89b4fa;
+@import "colors.css";
 
 * {
   font-family: "CaskaydiaMono Nerd Font", sans-serif;
