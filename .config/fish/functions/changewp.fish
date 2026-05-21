@@ -41,12 +41,25 @@ function changewp --description "Change wallpaper and dynamically regenerate col
     # 1. Set wallpaper using Awww
     /usr/bin/awww img "$wp_path"
     
-    # 2. Generate theme using Matugen
+    # 2. Generate theme using Matugen (dual-config split)
     if not set -q theme_mode
         set -U theme_mode dark
     end
     set -U current_wallpaper "$wp_path"
-    /home/fuyu/.local/share/cargo/bin/matugen --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$wp_path"
+
+    # 2a. Desktop components (Waybar, Hyprland, SwayNC, GTK) follow system theme_mode
+    /home/fuyu/.local/share/cargo/bin/matugen --config ~/.config/matugen/config.toml --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$wp_path"
+
+    # 2b. Terminal/TUI components (Ghostty, Fish, Starship, btop, cava...) always dark for legibility
+    /home/fuyu/.local/share/cargo/bin/matugen --config ~/.config/matugen/config-terminal.toml --contrast 0.15 -t scheme-vibrant -m dark image --source-color-index 0 "$wp_path"
+
+    # 2c. Apply correct Ghostty opacity based on mode, then reload Ghostty
+    if test "$theme_mode" = "light"
+        echo "background-opacity = 0.92" >> ~/.config/ghostty/colors.conf
+    else
+        echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
+    end
+    pkill -USR1 -x ghostty 2>/dev/null; true
 
     echo "Theme successfully regenerated!"
 end
