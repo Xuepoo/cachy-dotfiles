@@ -24,8 +24,14 @@
   margin: 4px 8px;
   padding: 8px;
   border: 1px solid @border-color;
-  /* 确保通知弹出时不触发复杂过渡 */
-  transition: none;
+  /* 允许微弱的 hover 过渡 */
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.notification:hover {
+  background: alpha(@bg-notification, 0.95);
+  border: 1px solid @accent;
+  transition: background 150ms ease, border-color 150ms ease;
 }
 
 /* 仅针对必要的交互保留微小的动画 */
