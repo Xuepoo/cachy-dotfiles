@@ -26,19 +26,8 @@ function togglemode --description "Toggle between light and dark theme modes usi
 
     /home/fuyu/.local/share/cargo/bin/matugen --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$current_wallpaper"
     
-    # If the system switched to light mode, immediately override Ghostty back to dark mode
-    # using a special Matugen configuration mapping so the terminal remains readable and eye-friendly.
-    if test "$theme_mode" = "light"
-        /home/fuyu/.local/share/cargo/bin/matugen --config ~/.config/matugen/config-ghostty.toml --contrast 0.15 -t scheme-vibrant -m dark image --source-color-index 0 "$current_wallpaper"
-    end
-    
-    # Dynamically adjust Ghostty background opacity for optimal readability
-    # (Use thicker opacity in light mode for better text contrast against bright wallpapers)
-    if test "$theme_mode" = "light"
-        echo "background-opacity = 0.96" >> ~/.config/ghostty/colors.conf
-    else
-        echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
-    end
+    # Keep Ghostty background opacity consistently at 0.78 for premium aesthetics and readability
+    echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
 
     echo "Theme successfully regenerated in $theme_mode mode!"
 
