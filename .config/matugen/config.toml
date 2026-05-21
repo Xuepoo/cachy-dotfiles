@@ -24,3 +24,8 @@ post_hook = "swaync-client -rs"
 input_path = "~/.config/yazi/flavors/noctalia.yazi/flavor-template.toml"
 output_path = "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
 
+[templates.starship]
+input_path = "~/.config/starship-template.toml"
+output_path = "~/.config/starship.toml"
+
+

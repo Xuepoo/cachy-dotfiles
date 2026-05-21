@@ -1,9 +1,10 @@
-/* ~/.config/wofi/style.css - Catppuccin Mocha */
+/* ~/.config/wofi/style.css - Dynamic Matugen */
+@import "../waybar/colors.css";
 
 window {
     margin: 0px;
-    border: 2px solid #89b4fa; /* 猫咪蓝边框 */
-    background-color: rgba(30, 30, 46, 0.8); /* 半透明基础背景 */
+    border: 2px solid @accent; /* Dynamic accent border */
+    background-color: alpha(@background, 0.8); /* Beautiful semi-transparent dock background */
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
     border-radius: 12px;
@@ -17,8 +18,8 @@ window {
 #input {
     margin: 5px 10px;
     border: none;
-    color: #cdd6f4;
-    background-color: #313244; /* 输入框略亮背景 */
+    color: @foreground;
+    background-color: @surface0; /* Slightly lighter input background */
     border-radius: 8px;
     padding: 10px;
 }
@@ -30,13 +31,13 @@ window {
 #entry {
     padding: 10px;
     border-radius: 8px;
-    color: #cdd6f4;
+    color: @foreground;
     transition: background-color 0.2s;
 }
 
 #entry:selected {
-    background-color: #45475a; /* 选中后的深色表面 */
-    color: #89b4fa; /* 选中文字变蓝 */
+    background-color: @surface1; /* Selected entry background */
+    color: @accent; /* Selected text color */
     outline: none;
 }
 

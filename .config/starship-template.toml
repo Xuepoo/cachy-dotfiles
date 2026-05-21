@@ -1,0 +1,98 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓]({{colors.primary.default.hex}})\
+[ ](bg:{{colors.primary.default.hex}} fg:{{colors.on_primary.default.hex}})\
+[](bg:{{colors.secondary.default.hex}} fg:{{colors.primary.default.hex}})\
+$directory\
+[](fg:{{colors.secondary.default.hex}} bg:{{colors.primary_container.default.hex}})\
+$git_branch\
+$git_status\
+[](fg:{{colors.primary_container.default.hex}} bg:{{colors.surface_container_high.default.hex}})\
+$nodejs\
+$rust\
+$golang\
+$lua\
+$c\
+$php\
+[](fg:{{colors.surface_container_high.default.hex}} bg:{{colors.surface_container.default.hex}})\
+$time\
+[ ](fg:{{colors.surface_container.default.hex}})\
+\n$character""" 
+
+[directory]
+style = "fg:{{colors.on_secondary.default.hex}} bg:{{colors.secondary.default.hex}}"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:{{colors.primary_container.default.hex}}"
+format = '[[ $symbol $branch ](fg:{{colors.secondary.default.hex}} bg:{{colors.primary_container.default.hex}})]($style)'
+
+[git_status]
+style = "bg:{{colors.primary_container.default.hex}}"
+format = '[[($all_status$ahead_behind )](fg:{{colors.secondary.default.hex}} bg:{{colors.primary_container.default.hex}})]($style)'
+
+[python]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ( \($virtualenv\) )](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[java]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[rust]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[golang]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[lua]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[c]
+symbol = " "
+style = "bg:{{colors.surface_container_high.default.hex}}"
+format = '[[ $symbol ($version) ](fg:{{colors.secondary.default.hex}} bg:{{colors.surface_container_high.default.hex}})]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:{{colors.surface_container.default.hex}}"
+format = '[[ $symbol $context ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})]($style)'
+
+[cmd_duration]
+min_time = 2000
+style = "bg:{{colors.surface_container.default.hex}}"
+format = '[[ 󱎫 $duration ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})]($style)'
+
+[time]
+disabled = false
+time_format = "%R" 
+style = "bg:{{colors.surface_container.default.hex}}"
+format = '[[  $time ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})]($style)'
+
+[character]
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+vimcmd_symbol = "[](bold blue)"
