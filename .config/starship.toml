@@ -41,12 +41,10 @@ format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
-# --- 语言模块增强 ---
 
 [python]
 symbol = " "
 style = "bg:#212736"
-# 显示 virtualenv 名称对隔离开发至关重要
 format = '[[ $symbol ($version) ( \($virtualenv\) )](fg:#769ff0 bg:#212736)]($style)'
 
 [java]
@@ -77,10 +75,8 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 [c]
 symbol = " "
 style = "bg:#212736"
-# 检测到 CMakeLists.txt, Makefile, 或 .c/.cpp 文件时触发
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-# --- 系统与效能模块 ---
 
 [docker_context]
 symbol = " "
@@ -88,7 +84,7 @@ style = "bg:#1d2230"
 format = '[[ $symbol $context ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [cmd_duration]
-min_time = 2000 # 超过 2s 的命令才显示
+min_time = 2000
 style = "bg:#1d2230"
 format = '[[ 󱎫 $duration ](fg:#a0a9cb bg:#1d2230)]($style)'
 
