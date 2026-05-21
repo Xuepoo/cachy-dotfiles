@@ -93,6 +93,6 @@ style = "bg:{{colors.surface_container.default.hex}}"
 format = '[[  $time ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})]($style)'
 
 [character]
-success_symbol = "[](bold green) "
-error_symbol = "[](bold red) "
-vimcmd_symbol = "[](bold blue)"
+success_symbol = "[](bold fg:{{colors.primary.default.hex}}) "
+error_symbol = "[](bold fg:{{colors.error.default.hex}}) "
+vimcmd_symbol = "[](bold fg:{{colors.secondary.default.hex}})"

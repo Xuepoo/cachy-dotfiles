@@ -8,15 +8,15 @@ find_keyword = { fg = "#ffb4ab", bold = true, italic = true, underline = true }
 find_position = { fg = "#ffb4ab", bold = true, italic = true }
 
 # Marker
-marker_copied = { fg = "#8f0043", bg = "#8f0043" }
-marker_cut = { fg = "#8f0043", bg = "#8f0043" }
+marker_copied = { fg = "#b50057", bg = "#b50057" }
+marker_cut = { fg = "#b50057", bg = "#b50057" }
 marker_marked = { fg = "#ffb4ab", bg = "#ffb4ab" }
 marker_selected = { fg = "#ffb59b", bg = "#ffb59b" }
 
 # Count
-count_copied = { fg = "#ffd9e0", bg = "#8f0043" }
-count_cut = { fg = "#ffd9e0", bg = "#8f0043" }
-count_selected = { fg = "#65002e", bg = "#ffb59b" }
+count_copied = { fg = "#ffffff", bg = "#b50057" }
+count_cut = { fg = "#ffffff", bg = "#b50057" }
+count_selected = { fg = "#5c0029", bg = "#ffb59b" }
 
 # Border
 border_style  = { fg = "#ffb1c4" }
@@ -40,7 +40,7 @@ progress_error = { fg = "#ffb4ab", bg = "#1d1013" }
 perm_type = { fg = "#f5b7b3" }
 perm_write = { fg = "#ffb59b" }
 perm_exec = { fg = "#ffb4ab" }
-perm_read = { fg = "#8f0043" }
+perm_read = { fg = "#b50057" }
 perm_sep = { fg = "#a18b8f" }
 
 # : ]]]
@@ -50,14 +50,14 @@ perm_sep = { fg = "#a18b8f" }
 
 [mode]
 
-normal_main = { bg = "#ffb1c4", fg = "#65002e", bold = true }
-normal_alt  = { bg = "#2a1c1f", fg = "#d9c0c5" }
+normal_main = { bg = "#ffb1c4", fg = "#5c0029", bold = true }
+normal_alt  = { bg = "#2d1e21", fg = "#d9c0c5" }
 
-select_main = { bg = "#f5b7b3", fg = "#65002e", bold = true }
-select_alt  = { bg = "#2a1c1f", fg = "#d9c0c5" }
+select_main = { bg = "#f5b7b3", fg = "#5c0029", bold = true }
+select_alt  = { bg = "#2d1e21", fg = "#d9c0c5" }
 
-unset_main = { bg = "#ffb59b", fg = "#52220f", bold = true }
-unset_alt  = { bg = "#2a1c1f", fg = "#d9c0c5" }
+unset_main = { bg = "#ffb59b", fg = "#4c1d0b", bold = true }
+unset_alt  = { bg = "#2d1e21", fg = "#d9c0c5" }
 
 # : ]]]
 
@@ -86,7 +86,7 @@ sep_inner = { open = "", close = "" }
 # : Completion [[[
 
 [cmp]
-border = { fg = "#ffb1c4", bg = "#65002e" }
+border = { fg = "#ffb1c4", bg = "#5c0029" }
 
 # : ]]]
 
@@ -96,7 +96,7 @@ border = { fg = "#ffb1c4", bg = "#65002e" }
 [tasks]
 border = { fg = "#ffb1c4" }
 title = {}
-hovered = { fg = "#8f0043", underline = true }
+hovered = { fg = "#b50057", underline = true }
 
 # : ]]]
 
@@ -107,7 +107,7 @@ hovered = { fg = "#8f0043", underline = true }
 cols = 3
 mask = { bg = "#1d1013" }
 cand = { fg = "#ffb1c4" }
-rest = { fg = "#65002e" }
+rest = { fg = "#5c0029" }
 desc = { fg = "#f6dce0" }
 separator = " ▶ "
 separator_style = { fg = "#f6dce0" }
@@ -131,7 +131,7 @@ tbl_cell = { fg = "#f6dce0", bg = "#1d1013" }
 on = { fg = "#f6dce0" }
 run = { fg = "#f6dce0" }
 hovered = { reversed = true, bold = true }
-footer = { fg = "#65002e", bg = "#f5b7b3" }
+footer = { fg = "#5c0029", bg = "#f5b7b3" }
 
 # : ]]]
 

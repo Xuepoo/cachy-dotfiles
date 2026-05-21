@@ -14,7 +14,7 @@ theme[title]="#ffb1c4"
 theme[hi_fg]="#ffb4ab"
 
 # Background and foreground for selected items
-theme[selected_bg]="#352629"
+theme[selected_bg]="#38282c"
 theme[selected_fg]="#ffb1c4"
 
 # Color of inactive/disabled text
@@ -24,7 +24,7 @@ theme[inactive_fg]="#a18b8f"
 theme[graph_text]="#d9c0c5"
 
 # Background color of volume/percentage meters
-theme[meter_bg]="#2a1c1f"
+theme[meter_bg]="#2d1e21"
 
 # Miscellaneous process colors
 theme[proc_misc]="#f5b7b3"
@@ -36,7 +36,7 @@ theme[net_box]="#ffb59b"
 theme[proc_box]="#ffb1c4"
 
 # Divider lines
-theme[div_line]="#544246"
+theme[div_line]="#6a575a"
 
 # Temperature graphs
 theme[temp_start]="#ffb1c4"

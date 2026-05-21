@@ -44,5 +44,10 @@ output_path = "~/.config/btop/themes/matugen.theme"
 input_path = "~/.config/cava/config_tui-template"
 output_path = "~/.config/cava/config_tui"
 
+[templates.fish]
+input_path = "~/.config/fish/colors-template.fish"
+output_path = "~/.config/fish/colors.fish"
+post_hook = "fish -c 'source ~/.config/fish/colors.fish'"
+
 
 
