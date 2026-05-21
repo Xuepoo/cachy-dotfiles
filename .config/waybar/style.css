@@ -99,7 +99,7 @@ window#waybar {
 #custom-darkmode, .custom-darkmode,
 #custom-notification, .custom-notification {
   padding: 0 6px;
-  margin: 3px 3px;
+  margin: 3px 2px;
   border-radius: 6px; /* Unified border radius */
   background-color: transparent;
   transition: all 0.2s ease;

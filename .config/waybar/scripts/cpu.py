@@ -44,7 +44,7 @@ def get_cpu_info():
     per_cpu_usage = psutil.cpu_percent(percpu=True)
     
     # Text displayed on the bar: CPU usage icon + percentage + temperature icon + package temperature
-    text = f"󰍛 {cpu_usage:.0f}%  {package_temp:.0f}°C"
+    text = f"󰍛 {cpu_usage:2.0f}%  {package_temp:.0f}°C"
     
     # Build a gorgeous, perfectly-aligned tooltip using Pango markup
     tooltip = []

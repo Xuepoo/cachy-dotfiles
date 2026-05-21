@@ -1,7 +1,7 @@
 {
   "reload_style_on_change": true,
   "position": "top",
-  "spacing": 4,
+  "spacing": 3,
   "width": 1280,
   "margin": "0px 2px 0 2px",
   "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava"],

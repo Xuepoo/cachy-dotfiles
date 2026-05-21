@@ -19,3 +19,8 @@ output_path = "~/.config/ghostty/colors.conf"
 input_path = "~/.config/swaync/colors-template.css"
 output_path = "~/.config/swaync/colors.css"
 post_hook = "swaync-client -rs"
+
+[templates.yazi]
+input_path = "~/.config/yazi/flavors/noctalia.yazi/flavor-template.toml"
+output_path = "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
+
