@@ -130,7 +130,7 @@ def process_event(status, player, artist, title):
 
 def main():
     while True:
-        cmd = ["playerctl", "--follow", "metadata", "--format", "{{status}}::{{player_name}}::{{artist}}::{{title}}"]
+        cmd = ["playerctl", "--follow", "metadata", "--format", "{{status}}::{{playerName}}::{{artist}}::{{title}}"]
         try:
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
         except Exception:
