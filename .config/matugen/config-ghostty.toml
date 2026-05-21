@@ -1,0 +1,8 @@
+# ~/.config/matugen/config-ghostty.toml
+# Special Matugen configuration for Ghostty to ensure it always remains in dark mode.
+[config]
+default_mode = "dark"
+
+[templates.ghostty]
+input_path = "~/.config/ghostty/colors-template.conf"
+output_path = "~/.config/ghostty/colors.conf"
