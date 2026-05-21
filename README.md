@@ -1,4 +1,4 @@
-# 󰊠 CachyOS Dotfiles
+# CachyOS Dotfiles
 
 A premium, highly-optimized set of Wayland-centric dotfiles tailored for **CachyOS / Arch Linux**. Featuring modern GPU-accelerated terminals, customized scrollable & dynamic tiling window managers, and full terminal-based development environment integrations.
 
@@ -6,7 +6,7 @@ Managed seamlessly using a **Bare Git Repository** setup to keep the home direct
 
 ---
 
-##  Managed Configurations & Systems
+## Managed Configurations & Systems
 
 Below is the structured breakdown of the configurations tracked in this repository:
 
@@ -29,7 +29,7 @@ Below is the structured breakdown of the configurations tracked in this reposito
 
 ---
 
-##  Installation & Dotfiles Management
+## Installation & Dotfiles Management
 
 These configurations are managed via a **bare git repository** mapped to `$HOME/.cfg/` with the worktree set to `$HOME`. 
 
@@ -77,7 +77,7 @@ config push
 
 ---
 
-## 󰏗 Key Recent Optimizations
+## Key Recent Optimizations
 
 ### 1. Waybar Status Bar Redesign
 - **Unified CPU & Temp Module**: Replaced separate status modules with a single, unified python-based script (`cpu.py`) leveraging `psutil` to show aggregated CPU utilization and average core temperatures. Hovering displays a beautiful layout showing utilization per logical thread and temperature per physical core.
