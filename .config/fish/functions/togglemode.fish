@@ -26,4 +26,10 @@ function togglemode --description "Toggle between light and dark theme modes usi
 
     /home/fuyu/.local/share/cargo/bin/matugen --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$current_wallpaper"
     echo "Theme successfully regenerated in $theme_mode mode!"
+
+    if test "$theme_mode" = "light"
+        notify-send "主题模式切换" "当前已切换至：白天模式 (Light Mode) ☀️"
+    else
+        notify-send "主题模式切换" "当前已切换至：黑夜模式 (Dark Mode) 🌙"
+    end
 end
