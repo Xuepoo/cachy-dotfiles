@@ -8,7 +8,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
-    "backlight",
+    "custom/backlight",
     "network",
     "bluetooth",
     "pulseaudio",
@@ -83,12 +83,14 @@
     "scroll-step": 5,
     "tooltip-format": "{source_volume}% - {source_desc}",
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}",
-    "tooltip-format": "{percent}%",
-    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+  "custom/backlight": {
+    "exec": "~/.config/waybar/scripts/backlight.py",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 2,
     "on-click": "/home/fuyu/.config/hypr/scripts/togglemode",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
   },
   "custom/cpu": {
     "exec": "~/.config/waybar/scripts/cpu.py",

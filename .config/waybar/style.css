@@ -88,6 +88,7 @@ window#waybar {
 #battery, .battery,
 #network, .network,
 #bluetooth, .bluetooth,
+#custom-backlight, .custom-backlight,
 #backlight, .backlight,
 #clock, .clock,
 #idle_inhibitor, .idle_inhibitor,
@@ -121,6 +122,7 @@ window#waybar {
 #battery:hover, .battery:hover,
 #network:hover, .network:hover,
 #bluetooth:hover, .bluetooth:hover,
+#custom-backlight:hover, .custom-backlight:hover,
 #backlight:hover, .backlight:hover,
 #clock:hover, .clock:hover,
 #idle_inhibitor:hover, .idle_inhibitor:hover,
@@ -128,7 +130,7 @@ window#waybar {
 #window:hover, .window:hover,
 #pulseaudio:hover, .pulseaudio:hover,
 #custom-notification:hover, .custom-notification:hover {
-  background-color: @surface1;
+  background-color: alpha(@foreground, 0.1);
 }
 
 /* Color allocation */
