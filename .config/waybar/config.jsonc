@@ -88,7 +88,7 @@
     "format": "{icon}",
     "tooltip-format": "{percent}%",
     "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
-    "on-click": "/home/fuyu/.local/bin/togglemode",
+    "on-click": "/home/fuyu/.config/hypr/scripts/togglemode",
   },
   "custom/cpu": {
     "exec": "~/.config/waybar/scripts/cpu.py",
