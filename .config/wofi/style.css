@@ -1,5 +1,5 @@
 /* ~/.config/wofi/style.css - Dynamic Matugen */
-@import "../waybar/colors.css";
+@import "/home/fuyu/.config/waybar/colors.css";
 
 window {
     margin: 0px;
