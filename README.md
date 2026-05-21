@@ -21,6 +21,7 @@ Below is the structured breakdown of the configurations tracked in this reposito
 | | [`.config/fastfetch`](file:///.config/fastfetch) | **Fastfetch** – Custom system info tool featuring aesthetic anime image displays. |
 | **Editor** | [`.config/nvim`](file:///.config/nvim) | **Neovim** – Fully-featured IDE setup formatted via StyLua, featuring translation-clean comments. |
 | **File Management** | [`.config/superfile`](file:///.config/superfile) | **Superfile** – Modern aesthetic terminal file manager loaded with themes. |
+| | [`.config/yazi`](file:///.config/yazi) | **Yazi** – Blazing fast terminal file manager written in Rust, featuring custom plugins and glow rendering. |
 | **Media & Audio** | [`.config/cava`](file:///.config/cava) | **CAVA** – Terminal audio spectrum visualizer with custom shaders. |
 | | [`.config/rmpc`](file:///.config/rmpc) | **RMPC** – High-fidelity MPD client for music control. |
 | **Utilities** | [`.config/wofi`](file:///.config/wofi) | **Wofi** – Custom launcher and menu runner. |
