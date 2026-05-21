@@ -1,8 +1,8 @@
 return {
   {
     "mrcjkb/rustaceanvim",
-    version = "^7", -- 推荐固定版本以避免破坏性更新
+    version = "^7", -- Recommended pinned version to avoid breaking updates
     lazy = false,
-    ft = { "rust" }, -- 仅在 Rust 文件加载
+    ft = { "rust" }, -- Load only on Rust files
   },
 }

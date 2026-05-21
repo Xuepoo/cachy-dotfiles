@@ -1,10 +1,10 @@
 return {
-  -- Vim-Dadbod - 数据库后端
+  -- Vim-Dadbod - Database backend
   {
     "tpope/vim-dadbod",
     lazy = false,
   },
-  -- Vim-Dadbod-UI - 数据库 UI
+  -- Vim-Dadbod-UI - Database UI
   {
     "kristijanhusak/vim-dadbod-ui",
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIChangeConnection" },
@@ -13,28 +13,28 @@ return {
       "kristijanhusak/vim-dadbod-completion",
     },
     init = function()
-      -- 配置数据库 UI
+      -- Configure Database UI
       vim.g.db_ui_use_nerd_fonts = 1
       vim.g.db_ui_show_database_icon = true
-      -- 保存位置
-      vim.g.db_ui_save_location = vim.fn.stdpath("data") .. "/dadbod/"
+      -- Save location
+      vim.g.db_ui_save_location = vim.fn.stdpath "data" .. "/dadbod/"
     end,
     opts = {},
     keys = {
-      -- 打开数据库 UI
+      -- Open Database UI
       {
         "<leader>db",
         "<cmd>DBUI<cr>",
         desc = "Toggle Database UI",
       },
-      -- 快速连接
+      -- Quick connect
       {
         "<leader>dbs",
         function()
           vim.ui.input({ prompt = "DB URL: " }, function(input)
             if input then
               vim.g.db_url = input
-              vim.cmd("DBUI")
+              vim.cmd "DBUI"
             end
           end)
         end,
@@ -42,7 +42,7 @@ return {
       },
     },
   },
-  -- Vim-Dadbod-Completion - 自动补全
+  -- Vim-Dadbod-Completion - Autocompletion
   {
     "kristijanhusak/vim-dadbod-completion",
     dependencies = { "tpope/vim-dadbod" },

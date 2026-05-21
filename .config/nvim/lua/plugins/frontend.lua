@@ -1,5 +1,5 @@
 return {
-  -- ── 自动闭合 HTML/JSX 标签 ──────────────────────────────────────────
+  -- ── Auto-close HTML/JSX tags ──────────────────────────────────────────
   {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
@@ -15,14 +15,14 @@ return {
     },
     opts = {
       opts = {
-        enable_close = true,          -- 自动关闭标签
-        enable_rename = true,         -- 自动重命名配对标签
-        enable_close_on_slash = false, -- 输入 </> 时自动补全标签名
+        enable_close = true, -- Auto close tags
+        enable_rename = true, -- Auto rename paired tags
+        enable_close_on_slash = false, -- Auto complete tag name when typing </
       },
     },
   },
 
-  -- ── 颜色代码高亮显示 ───────────────────────────────────────────────
+  -- ── Color code highlighting ───────────────────────────────────────────────
   {
     "NvChad/nvim-colorizer.lua",
     event = "BufReadPre",
@@ -41,30 +41,30 @@ return {
         "lua",
       },
       user_default_options = {
-        RGB = true,       -- #RGB 十六进制颜色
-        RRGGBB = true,    -- #RRGGBB 十六进制颜色
-        names = false,    -- 不高亮颜色名称如 "Blue"
-        RRGGBBAA = true,  -- #RRGGBBAA 十六进制颜色
-        rgb_fn = true,    -- CSS rgb() 和 rgba() 函数
-        hsl_fn = true,    -- CSS hsl() 和 hsla() 函数
-        css = true,       -- 启用所有 CSS 特性
-        css_fn = true,    -- 启用所有 CSS *函数*: rgb_fn, hsl_fn
-        mode = "background", -- 显示模式: foreground, background, virtualtext
-        tailwind = true,  -- 启用 tailwind 颜色
-        sass = { enable = true, parsers = { "css" } }, -- 启用 sass 颜色
+        RGB = true, -- #RGB hex colors
+        RRGGBB = true, -- #RRGGBB hex colors
+        names = false, -- Do not highlight color names like "Blue"
+        RRGGBBAA = true, -- #RRGGBBAA hex colors
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features
+        css_fn = true, -- Enable all CSS functions: rgb_fn, hsl_fn
+        mode = "background", -- Display mode: foreground, background, virtualtext
+        tailwind = true, -- Enable tailwind colors
+        sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
         virtualtext = "■",
       },
     },
   },
 
-  -- ── 代码检查器 ─────────────────────────────────────────────────────
+  -- ── Linter ─────────────────────────────────────────────────────
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local lint = require("lint")
+      local lint = require "lint"
 
-      -- 配置每种文件类型的 linter
+      -- Configure linter for each filetype
       lint.linters_by_ft = {
         javascript = { "eslint_d" },
         javascriptreact = { "eslint_d" },
@@ -77,10 +77,10 @@ return {
         -- scss = { "stylelint" },
       }
 
-      -- 创建自动命令组
+      -- Create autocommand group
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-      -- 在保存和进入缓冲区时自动检查
+      -- Automatically lint on save and buffer entry
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
         callback = function()
@@ -88,7 +88,7 @@ return {
         end,
       })
 
-      -- 手动触发 lint 的快捷键
+      -- Keymap to manually trigger linting
       vim.keymap.set("n", "<leader>ll", function()
         lint.try_lint()
       end, { desc = "Trigger linting for current file" })

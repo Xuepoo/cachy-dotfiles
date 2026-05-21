@@ -9,30 +9,30 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.conceallevel = 2 -- Required for plugins like Snacks.image to hide text and show images
 
--- 光标设置：确保块状光标下的字符可见
--- n-v-c: 块状，i: 条状
--- 增加 blend=20 (如果终端支持) 或者使用高亮组反转
+-- Cursor settings: ensure character under block cursor is visible
+-- n-v-c: block, i: vertical bar
+-- Add blend=20 (if terminal supports it) or use highlight group reverse
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50"
 vim.api.nvim_set_hl(0, "Cursor", { reverse = true })
 
--- 动态 scrolloff：根据窗口高度设置滚动偏移量
--- 使光标保持在屏幕中间 1/2 区域（上下各留 1/4）
+-- Dynamic scrolloff: set scroll offset based on window height
+-- Keep cursor in the middle 1/2 region of the screen (leave 1/4 at top and bottom)
 local function set_dynamic_scrolloff()
   local height = vim.api.nvim_win_get_height(0)
   local scrolloff_value = math.floor(height / 4)
   vim.opt.scrolloff = scrolloff_value
 end
 
--- 立即执行一次
+-- Execute once immediately
 set_dynamic_scrolloff()
 
--- 确保在各种场景下都能更新 scrolloff
+-- Ensure scrolloff is updated in various contexts
 vim.api.nvim_create_autocmd({ "VimResized", "BufEnter", "WinEnter" }, {
   callback = set_dynamic_scrolloff,
-  desc = "动态调整 scrolloff 使光标保持在中间 1/2 区域",
+  desc = "Dynamically adjust scrolloff to keep cursor in the middle 1/2 area of the screen",
 })
 
--- 不同文件类型的缩进配置
+-- Indentation configuration for different file types
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "lua",
@@ -73,20 +73,31 @@ vim.api.nvim_create_autocmd("FileType", {
     local indent_size = 2
     local use_tab = false
 
-    -- 只有以下文件类型强制使用 4 空格缩进
-    if vim.tbl_contains({
-      "rust", "c", "cpp", "java", "python", "ruby", "php",
-      "sh", "bash", "zsh",
-    }, filetype) then
+    -- Only the following filetypes use 4-space indentation
+    if
+      vim.tbl_contains({
+        "rust",
+        "c",
+        "cpp",
+        "java",
+        "python",
+        "ruby",
+        "php",
+        "sh",
+        "bash",
+        "zsh",
+      }, filetype)
+    then
       indent_size = 4
     end
 
-    -- 使用 tab 的文件类型
+    -- Filetypes that use actual tabs
     if vim.tbl_contains({
-      "make", "go",
+      "make",
+      "go",
     }, filetype) then
       use_tab = true
-      indent_size = 4 -- go 推荐展示宽度为 4
+      indent_size = 4 -- Go recommended tab stop size is 4
     end
 
     vim.opt_local.shiftwidth = indent_size
@@ -94,5 +105,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.softtabstop = indent_size
     vim.opt_local.expandtab = not use_tab
   end,
-  desc = "根据文件类型设置缩进",
+  desc = "Set indentation size based on filetype",
 })

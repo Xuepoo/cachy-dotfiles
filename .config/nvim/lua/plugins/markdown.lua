@@ -8,13 +8,13 @@ return {
     },
     ---@module 'render-markdown'
     opts = {
-      -- 关闭 render-markdown 的 latex 转换，交由 Snacks.image 处理终端高清渲染
+      -- Disable latex conversion in render-markdown, delegate to Snacks.image for HD terminal rendering
       latex = {
         enabled = false,
       },
-      -- 仅在 Normal 和 Command 模式下渲染，进入 Insert 模式自动显示源码
+      -- Only render in Normal and Command modes, automatically show source in Insert mode
       render_modes = { "n", "c" },
-      -- 建议开启，这样在当前行编辑时能看到公式源码，离开后变回渲染效果
+      -- Enable anti_conceal to see math source on current line when editing, reverts when cursor leaves
       anti_conceal = {
         enabled = true,
       },
@@ -29,6 +29,8 @@ return {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
 }

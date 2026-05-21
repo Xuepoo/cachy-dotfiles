@@ -1,5 +1,5 @@
 return {
-  -- Copilot 代码补全 (保留)
+  -- Copilot code completion (Keep)
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -23,7 +23,7 @@ return {
       },
     },
   },
-  -- OpenCode AI 助手 (替代 CopilotChat)
+  -- OpenCode AI Assistant (CopilotChat alternative)
   {
     "sudo-tee/opencode.nvim",
     cmd = { "Opencode" },
@@ -31,8 +31,8 @@ return {
     opts = {
       preferred_picker = "snacks",
       default_global_keymaps = false,
-      -- 禁用默认的 Shift+Tab 切换模式
-      -- 如果需要自定义，可以在这里重新映射
+      -- Disable default Shift+Tab layout switching mode
+      -- Custom re-mappings can be done here if needed
     },
     keys = {
       {

@@ -1,30 +1,30 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
+-- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
-	theme = "tundra",
-  -- 启用透明背景
+  theme = "tundra",
+  -- Enable transparent background
   transparency = true,
-  -- 自定义高亮
+  -- Custom highlights
   hl_override = {
-    -- 注释斜体
+    -- Italic comments
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    -- 完全透明
+    -- Fully transparent
     Normal = { bg = "NONE" },
     NormalFloat = { bg = "NONE" },
     SignColumn = { bg = "NONE" },
-    -- 文件树透明
+    -- File tree transparent
     NvimTreeNormal = { bg = "NONE" },
     NvimTreeNormalNC = { bg = "NONE" },
-    -- Telescope 透明
+    -- Telescope transparent
     TelescopeNormal = { bg = "NONE" },
     TelescopeBorder = { bg = "NONE" },
-    -- 相对行号加深
+    -- Darken relative line numbers
     LineNr = { fg = "light_grey" },
   },
 }
@@ -36,20 +36,20 @@ M.ui = {
   },
 }
 
--- 禁用默认插件，使用自定义替代方案
+-- Disable default plugins, use custom alternatives
 M.plugins = {
   disabled = {
-    -- 替代方案: snacks.nvim
+    -- Alternative: snacks.nvim
     "nvim-telescope/telescope.nvim",
     "telescope.nvim",
-    -- 替代方案: blink.cmp
+    -- Alternative: blink.cmp
     "nvim-cmp",
     "cmp-nvim-lsp",
     "cmp-buffer",
     "cmp-nvim-lua",
     "cmp_luasnip",
     "cmp-async-path",
-    -- 替代方案: oil.nvim
+    -- Alternative: oil.nvim
     "nvim-tree/nvim-tree.lua",
     "nvim-tree.lua",
   },

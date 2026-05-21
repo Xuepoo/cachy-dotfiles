@@ -1,5 +1,5 @@
 return {
-  -- Neogit - Git TUI (类似 Magit)
+  -- Neogit - Git TUI (Magit alternative)
   {
     "NeogitOrg/neogit",
     cmd = "Neogit",
@@ -8,33 +8,33 @@ return {
       "sindrets/diffview.nvim",
     },
     opts = {
-      -- 打开方式
+      -- How to open
       kind = "split_above",
-      -- 集成 diffview
+      -- Integrate diffview
       integrations = {
         diffview = true,
       },
-      -- 符号配置
+      -- Sign configurations
       signs = {
         section = { "▸", "▾" },
         item = { "▸", "▾" },
         hunk = { "", "" },
       },
-      -- 状态显示
+      -- Status display
       status = {
         recent_commit_count = 10,
       },
-      -- 提交编辑器
+      -- Commit editor
       commit_editor = {
         kind = "split",
       },
-      -- 变基编辑器
+      -- Rebase editor
       rebase_editor = {
         kind = "split",
       },
     },
     keys = {
-      -- 打开 Neogit
+      -- Open Neogit
       {
         "<leader>gg",
         function()
@@ -42,11 +42,11 @@ return {
         end,
         desc = "Open Neogit",
       },
-      -- 打开 Neogit (仓库根目录)
+      -- Open Neogit (repository root)
       {
         "<leader>gG",
         function()
-          require("neogit").open({ kind = "tab" })
+          require("neogit").open { kind = "tab" }
         end,
         desc = "Open Neogit (tab)",
       },

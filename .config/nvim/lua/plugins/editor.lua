@@ -1,15 +1,15 @@
 return {
-  -- ── 自动括号/引号补全 ──────────────────────────────────────────────
+  -- ── Auto-pairs / Quotes Completion ──────────────────────────────────────────────
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {
-      check_ts = true, -- 使用 treesitter 智能判断上下文
+      check_ts = true, -- Use treesitter to intelligently determine context
     },
   },
 
-  -- ── 词间跳转优化 ───────────────────────────────────────────────
-  -- 让 w, e, b 能识别 camelCase, snake_case
+  -- ── Word motion optimization ───────────────────────────────────────────────
+  -- Enable w, e, b to recognize camelCase and snake_case
   {
     "chrisgrieser/nvim-spider",
     keys = {
@@ -19,35 +19,35 @@ return {
     },
   },
 
-  -- ── 快速包裹/修改包围字符 ─────────────────────────────────────────
-  -- 用法示例：
-  --   ysiw"  → 给单词加双引号
-  --   cs"'   → 把双引号换成单引号
-  --   ds(    → 删除括号
-  --   yss)   → 给整行加括号
+  -- ── Fast Surround manipulation ─────────────────────────────────────────
+  -- Usage Examples:
+  --   ysiw"  → Surround word with double quotes
+  --   cs"'   → Change double quotes to single quotes
+  --   ds(    → Delete surrounding parentheses
+  --   yss)   → Surround whole line with parentheses
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = {},
   },
 
-  -- ── 诊断 / 引用列表面板 ───────────────────────────────────────────
+  -- ── Diagnostics / References List Panel ───────────────────────────────────────────
   {
     "folke/trouble.nvim",
     cmd = "Trouble",
     opts = {
       modes = {
         lsp = {
-          win = { position = "right" }, -- LSP 引用显示在右侧
+          win = { position = "right" }, -- Display LSP references on the right
         },
       },
     },
     keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Diagnostics (Trouble)" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
       { "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics" },
-      { "<leader>xs", "<cmd>Trouble symbols toggle<cr>",                  desc = "Symbols (Trouble)" },
-      { "<leader>xl", "<cmd>Trouble lsp toggle<cr>",                      desc = "LSP Definitions / References" },
-      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>",                   desc = "Quickfix List (Trouble)" },
+      { "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+      { "<leader>xl", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / References" },
+      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
     },
   },
 }

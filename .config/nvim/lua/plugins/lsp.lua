@@ -29,8 +29,8 @@ return {
       local lsp_configs = require "configs.lspconfig"
       local ensure_installed = {}
       for _, server in ipairs(lsp_configs.servers) do
-        -- 彻底从 mason-lspconfig 的 ensure_installed 中移除 volar 
-        -- 避免由于映射表问题导致的 "not a valid entry" 报错
+        -- Completely remove volar from mason-lspconfig ensure_installed
+        -- Prevent "not a valid entry" error due to mapping table issues
         if server ~= "volar" and server ~= "gopls" then
           table.insert(ensure_installed, server)
         end
@@ -54,7 +54,7 @@ return {
         "prettier",
         "eslint_d",
         "pylint",
-        "vue-language-server", -- 放在这里强制安装，它不会检查 lspconfig 映射
+        "vue-language-server", -- Force install here, as it doesn't check lspconfig mappings
       },
     },
     config = function(_, opts)

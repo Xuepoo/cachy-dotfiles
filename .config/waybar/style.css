@@ -14,12 +14,13 @@
 
 * {
   border: none;
-  font-family: 'CaskaydiaMono Nerd Font Propo', 'CaskaydiaMono Nerd Font', monospace;
+  font-family:
+    "CaskaydiaMono Nerd Font Propo", "CaskaydiaMono Nerd Font", monospace;
   font-size: 13px;
   min-height: 0;
 }
 
-/* Tooltip 样式修复 - 确保悬停时信息可见 */
+/* Tooltip style fix - ensure visibility on hover */
 tooltip {
   background: @background;
   border: 1px solid @accent;
@@ -38,7 +39,7 @@ tooltip label big {
 }
 
 tooltip label tt {
-  font-family: 'CaskaydiaMono Nerd Font', monospace;
+  font-family: "CaskaydiaMono Nerd Font", monospace;
   font-size: 12px;
 }
 
@@ -54,7 +55,7 @@ window#waybar {
   border: 1px solid alpha(@accent, 0.2);
 }
 
-/* 模块分组间距调优 */
+/* Module group spacing optimization */
 .modules-left,
 .modules-right,
 .modules-center {
@@ -86,14 +87,13 @@ window#waybar {
   background-color: alpha(@accent, 0.3);
 }
 
-/* 通用模块样式 - 调整间距并增加悬停反馈 */
+/* Common module styles - adjust spacing and hover feedback */
 #custom-cava,
 #custom-cava,
 #tray,
 #group-tray-expander,
-#cpu,
+#custom-cpu,
 #memory,
-#temperature,
 #battery,
 #network,
 #bluetooth,
@@ -109,12 +109,12 @@ window#waybar {
 #custom-notification {
   padding: 0 7px;
   margin: 3px 1px;
-  border-radius: 6px; /* 统一圆角 */
+  border-radius: 6px; /* Unified border radius */
   background-color: transparent;
   transition: all 0.2s ease;
 }
 
-/* CAVA 特殊样式 (恢复原版设计) */
+/* CAVA special styles (restore original design) */
 #custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
   font-size: 16px;
@@ -122,12 +122,11 @@ window#waybar {
   color: @accent;
 }
 
-/* 鼠标悬停背景反馈 */
+/* Mouse hover background feedback */
 #custom-cava:hover,
 #tray:hover,
-#cpu:hover,
+#custom-cpu:hover,
 #memory:hover,
-#temperature:hover,
 #battery:hover,
 #network:hover,
 #bluetooth:hover,
@@ -141,27 +140,54 @@ window#waybar {
   background-color: @surface1;
 }
 
-/* 颜色分配 */
-#cpu { color: @green; }
-#memory { color: @green; }
-#battery { color: @green; }
-#network { color: @mauve; }
-#clock { color: @foreground; font-weight: bold; }
-#custom-notification { color: @yellow; }
+/* Color allocation */
+#custom-cpu {
+  color: @green;
+}
+#memory {
+  color: @green;
+}
+#battery {
+  color: @green;
+}
+#network {
+  color: @mauve;
+}
+#clock {
+  color: @foreground;
+  font-weight: bold;
+}
+#custom-notification {
+  color: @yellow;
+}
 
-/* 录音指示 */
+/* Recording indicator */
 #pulseaudio.microphone.recording {
   color: @red;
 }
 
-/* 状态颜色 */
-#cpu.warning { color: @yellow; }
-#cpu.critical { color: @red; }
-#memory.warning { color: @yellow; }
-#memory.critical { color: @red; }
-#battery.warning { color: @yellow; }
-#battery.critical { color: @red; }
-#battery.charging { color: @green; }
+/* State colors */
+#custom-cpu.warning {
+  color: @yellow;
+}
+#custom-cpu.critical {
+  color: @red;
+}
+#memory.warning {
+  color: @yellow;
+}
+#memory.critical {
+  color: @red;
+}
+#battery.warning {
+  color: @yellow;
+}
+#battery.critical {
+  color: @red;
+}
+#battery.charging {
+  color: @green;
+}
 
 #idle_inhibitor.activated {
   color: @green;
@@ -171,4 +197,3 @@ window#waybar {
   color: @accent;
   padding-right: 3px;
 }
-

@@ -1,34 +1,34 @@
 return {
-  -- Oil.nvim - 替代 nvim-tree
+  -- Oil.nvim - File explorer replacing nvim-tree
   {
     "stevearc/oil.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      -- 默认文件浏览器配置
+      -- Default file explorer configuration
       default_file_explorer = true,
-      -- 删除到回收站
+      -- Delete to trash
       delete_to_trash = true,
-      -- 简单编辑不确认
+      -- Skip confirmation for simple edits
       skip_confirm_for_simple_edits = true,
-      -- 视图选项
+      -- View options
       view_options = {
         show_hidden = true,
-        -- 自然排序
+        -- Natural order
         natural_order = true,
       },
-      -- 浮动窗口配置
+      -- Float window configuration
       float = {
         padding = 5,
         max_width = 120,
         max_height = 100,
         border = "rounded",
       },
-      -- 预览窗口
+      -- Preview window
       preview = {
         border = "rounded",
       },
-      -- 键位配置
+      -- Keymaps configuration
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
@@ -49,7 +49,7 @@ return {
       require("oil").setup(opts)
     end,
     keys = {
-      -- 打开当前目录
+      -- Open current directory
       {
         "<leader>e",
         function()
@@ -57,7 +57,7 @@ return {
         end,
         desc = "Open Oil File Explorer",
       },
-      -- 打开当前文件所在目录
+      -- Open directory of the current file
       {
         "-",
         function()
@@ -65,7 +65,7 @@ return {
         end,
         desc = "Open Parent Directory",
       },
-      -- 打开浮动窗口
+      -- Open float window
       {
         "<leader>E",
         function()

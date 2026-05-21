@@ -10,17 +10,17 @@ return {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     opts = function()
-      local animate = require("mini.animate")
+      local animate = require "mini.animate"
       return {
         resize = {
-          timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
+          timing = animate.gen_timing.linear { duration = 50, unit = "total" },
         },
         scroll = {
           enable = false,
         },
         cursor = {
           enable = true,
-          timing = animate.gen_timing.linear({ duration = 80, unit = "total" }),
+          timing = animate.gen_timing.linear { duration = 80, unit = "total" },
         },
       }
     end,
@@ -62,11 +62,46 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
     },
   },
   {

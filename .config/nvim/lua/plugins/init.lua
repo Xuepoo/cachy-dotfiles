@@ -14,7 +14,7 @@ return {
         "markdown",
         "markdown_inline",
         "latex",
-        -- 前端开发相关
+        -- Frontend development
         "javascript",
         "typescript",
         "tsx",
@@ -26,7 +26,7 @@ return {
     },
   },
 
-  -- 禁用 nvim-cmp 和 LuaSnip，因为我们使用 blink.cmp
+  -- Disable nvim-cmp and LuaSnip since we use blink.cmp
   { "hrsh7th/nvim-cmp", enabled = false },
   { "L3MON4D3/LuaSnip", enabled = false },
 }

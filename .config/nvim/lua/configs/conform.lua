@@ -1,7 +1,7 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- 前端相关格式化器
+    -- Frontend formatters
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
@@ -16,11 +16,11 @@ local options = {
     yaml = { "prettier" },
     markdown = { "prettier" },
     graphql = { "prettier" },
-    -- Python 格式化
+    -- Python formatters
     python = { "ruff_fix", "ruff_format" },
   },
 
-  -- 保存时自动格式化（可选，根据需要开启）
+  -- Auto-format on save (optional, enable as needed)
   -- format_on_save = {
   --   timeout_ms = 500,
   --   lsp_fallback = true,

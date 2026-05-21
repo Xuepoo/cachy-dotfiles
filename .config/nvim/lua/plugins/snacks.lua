@@ -1,38 +1,38 @@
 return {
-  -- Snacks.nvim - 替代 Telescope、Dashboard、Notifier 等
+  -- Snacks.nvim - QoL utilities replacing Telescope, Dashboard, Notifier, etc.
   {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
     opts = {
-      -- 开启图片和公式渲染支持 (Ghostty / Kitty Image Protocol)
+      -- Enable image and math formula rendering support (Ghostty / Kitty Image Protocol)
       image = {
         force_kitty = true,
         enabled = true,
-        doc = { 
+        doc = {
           enabled = true,
           inline = true,
           float = true,
         },
-        math = { 
+        math = {
           enabled = true,
         },
       },
-      -- Dashboard 配置
+      -- Dashboard configuration
       dashboard = {
         preset = {
           keys = {},
         },
       },
-      -- Notifier 配置
+      -- Notifier configuration
       notifier = {
         timeout = 3000,
       },
-      -- Scope 配置
+      -- Scope configuration
       scope = {
         show_git = true,
       },
-      -- Statuscolumn 配置
+      -- Statuscolumn configuration
       statuscolumn = {
         folds = {
           open = "󰷏 ",
@@ -45,26 +45,92 @@ return {
       },
     },
     keys = {
-      -- Picker 快捷键
-      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-      { "<leader>fg", function() Snacks.picker.live_grep() end, desc = "Live Grep" },
-      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find Buffers" },
-      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent Files" },
-      { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep (root dir)" },
-      { "<leader>sg", function() Snacks.picker.grep_visual() end, desc = "Grep Selection" },
-      { "<leader>fh", function() Snacks.picker.help() end, desc = "Find Help" },
+      -- Picker keymaps
+      {
+        "<leader>ff",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "Find Files",
+      },
+      {
+        "<leader>fg",
+        function()
+          Snacks.picker.live_grep()
+        end,
+        desc = "Live Grep",
+      },
+      {
+        "<leader>fb",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Find Buffers",
+      },
+      {
+        "<leader>fr",
+        function()
+          Snacks.picker.recent()
+        end,
+        desc = "Recent Files",
+      },
+      {
+        "<leader>/",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "Grep (root dir)",
+      },
+      {
+        "<leader>sg",
+        function()
+          Snacks.picker.grep_visual()
+        end,
+        desc = "Grep Selection",
+      },
+      {
+        "<leader>fh",
+        function()
+          Snacks.picker.help()
+        end,
+        desc = "Find Help",
+      },
 
       -- Dashboard
-      { "<leader>nd", function() Snacks.dashboard() end, desc = "Dashboard" },
+      {
+        "<leader>nd",
+        function()
+          Snacks.dashboard()
+        end,
+        desc = "Dashboard",
+      },
 
       -- Notifier
-      { "<leader>un", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+      {
+        "<leader>un",
+        function()
+          Snacks.notifier.show_history()
+        end,
+        desc = "Notification History",
+      },
 
       -- Scope
-      { "<leader>us", function() Snacks.scope() end, desc = "Scope" },
+      {
+        "<leader>us",
+        function()
+          Snacks.scope()
+        end,
+        desc = "Scope",
+      },
 
-      -- Word (拼写检查)
-      { "z=", function() Snacks.words() end, desc = " Spelling suggestions" },
+      -- Word (Spell checking)
+      {
+        "z=",
+        function()
+          Snacks.words()
+        end,
+        desc = " Spelling suggestions",
+      },
     },
   },
 }

@@ -1,5 +1,5 @@
 return {
-  -- Diffview.nvim - Git diff 视图
+  -- Diffview.nvim - Git diff viewer
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose", "DiffviewToggleFiles" },
@@ -23,7 +23,7 @@ return {
       enhanced_diff_hl = true,
     },
     keys = {
-      -- 打开 Diffview (当前更改)
+      -- Open Diffview (current changes)
       {
         "<leader>Do",
         function()
@@ -37,15 +37,15 @@ return {
         end,
         desc = "Open Diffview",
       },
-      -- 打开 Diffview (简洁模式)
+      -- Open Diffview (simplified mode)
       {
         "<leader>Ds",
         function()
-          require("diffview").open({ args = { "--imply-local" } })
+          require("diffview").open { args = { "--imply-local" } }
         end,
         desc = "Open Diffview (simplified)",
       },
-      -- 关闭 Diffview
+      -- Close Diffview
       {
         "<leader>Dc",
         function()
@@ -53,15 +53,15 @@ return {
         end,
         desc = "Close Diffview",
       },
-      -- 切换文件面板
+      -- Toggle file panel
       {
         "<leader>Dt",
         function()
-          vim.cmd("DiffviewToggleFiles")
+          vim.cmd "DiffviewToggleFiles"
         end,
         desc = "Toggle Files Panel",
       },
-      -- 文件历史
+      -- File history
       {
         "<leader>Dh",
         function()
