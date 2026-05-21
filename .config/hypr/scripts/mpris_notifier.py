@@ -11,6 +11,9 @@ state_lock = threading.Lock()
 # Dictionary to store active timers: {player: Timer}
 active_timers = {}
 
+# Dictionary to store pending track notifications: {player: (artist, title)}
+pending_tracks = {}
+
 # Dictionary to store last successfully notified track: {player: (artist, title)}
 last_notified_tracks = {}
 
@@ -70,9 +73,11 @@ def handle_play_timer_fire(player, title, artist):
     with state_lock:
         # Mark as successfully notified
         last_notified_tracks[player] = (artist, title)
-        # Clean up the timer reference
+        # Clean up the timer and pending references
         if player in active_timers:
             del active_timers[player]
+        if player in pending_tracks:
+            del pending_tracks[player]
             
     send_notification(player, title, artist, "Playing")
 
@@ -89,22 +94,34 @@ def process_event(status, player, artist, title):
     track_id = (artist.strip(), title.strip())
 
     with state_lock:
-        # Cancel any pending playing timer for this player
-        if player_strip in active_timers:
-            active_timers[player_strip].cancel()
-            del active_timers[player_strip]
-
         if status_lower == "playing":
             # Check if this track is already playing and was already notified
             if last_notified_tracks.get(player_strip) == track_id:
                 return
                 
+            # Check if this track is already in pending queue
+            if pending_tracks.get(player_strip) == track_id:
+                return
+                
+            # If there was a different pending track, cancel its timer
+            if player_strip in active_timers:
+                active_timers[player_strip].cancel()
+                del active_timers[player_strip]
+                
             # Schedule a playing notification with a debounce of 1.2 seconds to filter hovers/scans
             timer = threading.Timer(1.2, handle_play_timer_fire, args=[player_strip, title, artist])
             active_timers[player_strip] = timer
+            pending_tracks[player_strip] = track_id
             timer.start()
             
         elif status_lower == "paused":
+            # Cancel any pending playing timer for this player since it was paused
+            if player_strip in active_timers:
+                active_timers[player_strip].cancel()
+                del active_timers[player_strip]
+            if player_strip in pending_tracks:
+                del pending_tracks[player_strip]
+                
             # Only send a pause notification if the user was previously notified of it playing
             if last_notified_tracks.get(player_strip) == track_id:
                 send_notification(player_strip, title, artist, "Paused")
