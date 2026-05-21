@@ -11,22 +11,10 @@ post_hook = "touch ~/.config/waybar/style.css && killall -USR2 waybar"
 input_path = "~/.config/hypr/colors-template.conf"
 output_path = "~/.config/hypr/colors.conf"
 
-[templates.ghostty]
-input_path = "~/.config/ghostty/colors-template.conf"
-output_path = "~/.config/ghostty/colors.conf"
-
 [templates.swaync]
 input_path = "~/.config/swaync/colors-template.css"
 output_path = "~/.config/swaync/colors.css"
 post_hook = "touch ~/.config/swaync/style.css && swaync-client -rs -R"
-
-[templates.yazi]
-input_path = "~/.config/yazi/flavors/matugen.yazi/flavor-template.toml"
-output_path = "~/.config/yazi/flavors/matugen.yazi/flavor.toml"
-
-[templates.starship]
-input_path = "~/.config/starship-template.toml"
-output_path = "~/.config/starship.toml"
 
 [templates.gtk4]
 input_path = "~/.config/gtk-4.0/gtk-template.css"
@@ -35,31 +23,3 @@ output_path = "~/.config/gtk-4.0/gtk.css"
 [templates.gtk3]
 input_path = "~/.config/gtk-4.0/gtk-template.css"
 output_path = "~/.config/gtk-3.0/gtk.css"
-
-[templates.btop]
-input_path = "~/.config/btop/themes/matugen-template.theme"
-output_path = "~/.config/btop/themes/matugen.theme"
-
-[templates.cava]
-input_path = "~/.config/cava/config_tui-template"
-output_path = "~/.config/cava/config_tui"
-
-[templates.fish]
-input_path = "~/.config/fish/colors-template.fish"
-output_path = "~/.config/fish/colors.fish"
-post_hook = "fish -c 'source ~/.config/fish/colors.fish'"
-
-[templates.rmpc_config]
-input_path = "~/.config/rmpc/config-template.ron"
-output_path = "~/.config/rmpc/config.ron"
-
-[templates.rmpc_theme]
-input_path = "~/.config/rmpc/themes/matugen-template.ron"
-output_path = "~/.config/rmpc/themes/matugen.ron"
-
-[templates.tealdeer]
-input_path = "~/.config/tealdeer/config-template.toml"
-output_path = "~/.config/tealdeer/config.toml"
-
-
-

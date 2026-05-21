@@ -1,0 +1,40 @@
+# ~/.config/matugen/config-terminal.toml
+[config]
+default_mode = "dark"
+
+[templates.ghostty]
+input_path = "~/.config/ghostty/colors-template.conf"
+output_path = "~/.config/ghostty/colors.conf"
+
+[templates.yazi]
+input_path = "~/.config/yazi/flavors/matugen.yazi/flavor-template.toml"
+output_path = "~/.config/yazi/flavors/matugen.yazi/flavor.toml"
+
+[templates.starship]
+input_path = "~/.config/starship-template.toml"
+output_path = "~/.config/starship.toml"
+
+[templates.btop]
+input_path = "~/.config/btop/themes/matugen-template.theme"
+output_path = "~/.config/btop/themes/matugen.theme"
+
+[templates.cava]
+input_path = "~/.config/cava/config_tui-template"
+output_path = "~/.config/cava/config_tui"
+
+[templates.fish]
+input_path = "~/.config/fish/colors-template.fish"
+output_path = "~/.config/fish/colors.fish"
+post_hook = "fish -c 'source ~/.config/fish/colors.fish'"
+
+[templates.rmpc_config]
+input_path = "~/.config/rmpc/config-template.ron"
+output_path = "~/.config/rmpc/config.ron"
+
+[templates.rmpc_theme]
+input_path = "~/.config/rmpc/themes/matugen-template.ron"
+output_path = "~/.config/rmpc/themes/matugen.ron"
+
+[templates.tealdeer]
+input_path = "~/.config/tealdeer/config-template.toml"
+output_path = "~/.config/tealdeer/config.toml"

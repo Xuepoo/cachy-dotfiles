@@ -24,10 +24,23 @@ function togglemode --description "Toggle between light and dark theme modes usi
     echo "Toggling theme mode to: $theme_mode"
     echo "Regenerating theme for: $current_wallpaper"
 
-    /home/fuyu/.local/share/cargo/bin/matugen --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$current_wallpaper"
+    # 1. Regenerate desktop components based on active theme_mode (light/dark)
+    /home/fuyu/.local/share/cargo/bin/matugen --config ~/.config/matugen/config.toml --contrast 0.15 -t scheme-vibrant -m $theme_mode image --source-color-index 0 "$current_wallpaper"
+
+    # 2. Regenerate terminal and TUI components ALWAYS in dark mode for optimal legibility and eye comfort
+    /home/fuyu/.local/share/cargo/bin/matugen --config ~/.config/matugen/config-terminal.toml --contrast 0.15 -t scheme-vibrant -m dark image --source-color-index 0 "$current_wallpaper"
     
-    # Keep Ghostty background opacity consistently at 0.78 for premium aesthetics and readability
-    echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
+    # Adjust Ghostty background opacity per mode:
+    # - Light mode: 0.92 (high opacity) so the bright wallpaper doesn't wash out the dark terminal
+    # - Dark mode: 0.78 (premium glassmorphism) because dark wallpapers blend beautifully
+    if test "$theme_mode" = "light"
+        echo "background-opacity = 0.92" >> ~/.config/ghostty/colors.conf
+    else
+        echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
+    end
+
+    # Reload Ghostty config across all running instances
+    pkill -USR1 -x ghostty 2>/dev/null; true
 
     echo "Theme successfully regenerated in $theme_mode mode!"
 
