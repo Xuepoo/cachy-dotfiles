@@ -3,8 +3,10 @@
 
 window {
     margin: 0px;
-    border: 2px solid @accent; /* Dynamic accent border */
-    background-color: alpha(@background, 0.8); /* Beautiful semi-transparent dock background */
+    border: 2px solid @accent;
+    /* Use foreground color (dark in light mode) at 85% opacity for a beautiful
+       deep, readable background regardless of light/dark mode */
+    background-color: alpha(@foreground, 0.85);
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
     border-radius: 12px;
@@ -18,10 +20,14 @@ window {
 #input {
     margin: 5px 10px;
     border: none;
+    /* Input box: use background color (light in light mode) for contrast */
     color: @foreground;
-    background-color: @surface0; /* Slightly lighter input background */
+    background-color: alpha(@background, 0.15);
+    border: 1px solid alpha(@accent, 0.5);
     border-radius: 8px;
     padding: 10px;
+    /* Text in input should be light since container bg is dark */
+    color: @background;
 }
 
 #inner-box {
@@ -31,13 +37,14 @@ window {
 #entry {
     padding: 10px;
     border-radius: 8px;
-    color: @foreground;
+    /* Entry text: use background color (light) for readability on dark container */
+    color: alpha(@background, 0.9);
     transition: background-color 0.2s;
 }
 
 #entry:selected {
-    background-color: @surface1; /* Selected entry background */
-    color: @accent; /* Selected text color */
+    background-color: alpha(@accent, 0.3);
+    color: @background;
     outline: none;
 }
 
@@ -52,7 +59,6 @@ window {
     height: 24px;
 }
 
-/* 隐藏部分不需要的边框或虚线 */
 #entry:focus {
     outline: none;
 }
