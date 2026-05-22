@@ -40,7 +40,7 @@ function togglemode --description "Toggle between light and dark theme modes usi
     end
 
     # Reload Ghostty config across all running instances
-    pkill -USR1 -x ghostty 2>/dev/null; true
+    pkill -USR2 -x ghostty 2>/dev/null; true
 
     echo "Theme successfully regenerated in $theme_mode mode!"
 

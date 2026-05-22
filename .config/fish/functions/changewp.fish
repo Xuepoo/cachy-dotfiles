@@ -1,7 +1,27 @@
 function changewp --description "Change wallpaper and dynamically regenerate colors using Awww and Matugen"
     set -l wp_dir "$HOME/Pictures/Wallpapers"
     
+    # 1. Parse arguments and handle flags
+    set -l mode "normal"
     if test (count $argv) -eq 0
+        set mode "random"
+    else if contains -- $argv[1] "-r" "--random" "random"
+        set mode "random"
+    else if contains -- $argv[1] "-s" "--select" "select"
+        set mode "select"
+    end
+
+    # 2. Route execution based on parsed mode
+    if test "$mode" = "random"
+        set -l files (find $wp_dir -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \))
+        if test (count $files) -gt 0
+            set -l rand_idx (random 1 (count $files))
+            set argv $files[$rand_idx]
+        else
+            echo "Error: No wallpapers found in $wp_dir."
+            return 1
+        end
+    else if test "$mode" = "select"
         if type -q television
             set -l selected (find $wp_dir -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) | television)
             if test -n "$selected"
@@ -17,9 +37,7 @@ function changewp --description "Change wallpaper and dynamically regenerate col
                 return 0
             end
         else
-            echo "Usage: changewp <wallpaper_path_or_filename>"
-            echo "Available wallpapers in $wp_dir:"
-            ls -1 $wp_dir
+            echo "Error: Neither 'television' nor 'fzf' is installed for interactive selection."
             return 1
         end
     end
@@ -38,8 +56,31 @@ function changewp --description "Change wallpaper and dynamically regenerate col
 
     echo "Changing wallpaper to: $wp_path"
     
-    # 1. Set wallpaper using Awww
-    /usr/bin/awww img "$wp_path"
+    # 3. Set wallpaper using Awww with a randomized premium transition style
+    set -l transition_choices "grow" "outer" "wipe" "wave" "fade"
+    set -l rand_choice (random 1 (count $transition_choices))
+    set -l transition_type $transition_choices[$rand_choice]
+    
+    set -l transition_args
+    switch $transition_type
+        case "grow"
+            set transition_args --transition-type grow --transition-pos center --transition-duration 1.5 --transition-fps 90
+        case "outer"
+            set transition_args --transition-type outer --transition-pos center --transition-duration 1.5 --transition-fps 90
+        case "wipe"
+            set -l angles 0 30 45 90 135 180
+            set -l rand_angle_idx (random 1 (count $angles))
+            set transition_args --transition-type wipe --transition-angle $angles[$rand_angle_idx] --transition-duration 1.8 --transition-fps 90
+        case "wave"
+            set -l angles 30 45 60 120
+            set -l rand_angle_idx (random 1 (count $angles))
+            set transition_args --transition-type wave --transition-angle $angles[$rand_angle_idx] --transition-duration 1.8 --transition-fps 90
+        case "fade"
+            set transition_args --transition-type fade --transition-duration 1.2 --transition-fps 90
+    end
+    
+    echo "Transition animation: $transition_type"
+    /usr/bin/awww img "$wp_path" $transition_args
     
     # 2. Generate theme using Matugen (dual-config split)
     if not set -q theme_mode
@@ -59,7 +100,7 @@ function changewp --description "Change wallpaper and dynamically regenerate col
     else
         echo "background-opacity = 0.78" >> ~/.config/ghostty/colors.conf
     end
-    pkill -USR1 -x ghostty 2>/dev/null; true
+    pkill -USR2 -x ghostty 2>/dev/null; true
 
     echo "Theme successfully regenerated!"
 end
