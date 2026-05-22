@@ -14,7 +14,7 @@ cached_class = "stopped"
 def get_mpd_status():
     global last_update, cached_tooltip, cached_class
     now = time.time()
-    # Rate limit to at most once per second to avoid high CPU usage
+    # Rate limit MPD querying to at most once per second to avoid high CPU usage
     if now - last_update < 1.0:
         return cached_tooltip, cached_class
     
@@ -61,15 +61,19 @@ def get_mpd_status():
     return cached_tooltip, cached_class
 
 def main():
-    # Start CAVA in raw ascii mode as a subprocess
+    # Use stdbuf -oL -eL to force CAVA stdout to be line-buffered, preventing pipe buffering delays
     cava_proc = subprocess.Popen(
-        ["cava", "-p", "/home/fuyu/.config/waybar/cava.conf"],
+        ["stdbuf", "-oL", "-eL", "cava", "-p", "/home/fuyu/.config/waybar/cava.conf"],
         stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
         text=True
     )
     
     MAP = [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    
+    last_print = 0
+    # Throttle printing to Waybar to ~15 FPS to avoid overloading Waybar's JSON renderer
+    frame_interval = 1.0 / 15.0
     
     try:
         while True:
@@ -83,16 +87,19 @@ def main():
             if not bars:
                 continue
                 
-            tooltip, css_class = get_mpd_status()
-            
-            data = {
-                "text": bars,
-                "tooltip": tooltip,
-                "class": css_class
-            }
-            
-            sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
-            sys.stdout.flush()
+            now = time.time()
+            if now - last_print >= frame_interval:
+                last_print = now
+                tooltip, css_class = get_mpd_status()
+                
+                data = {
+                    "text": bars,
+                    "tooltip": tooltip,
+                    "class": css_class
+                }
+                
+                sys.stdout.write(json.dumps(data, ensure_ascii=False) + "\n")
+                sys.stdout.flush()
     except KeyboardInterrupt:
         pass
     finally:
