@@ -80,7 +80,6 @@ window#waybar {
 }
 
 /* Common module styles - adjust spacing and hover feedback */
-#custom-cava, .custom-cava,
 #tray, .tray,
 #tray-expander, .tray-expander,
 #custom-cpu, .custom-cpu,
@@ -106,16 +105,37 @@ window#waybar {
   transition: all 0.2s ease;
 }
 
-/* CAVA special styles (restore original design) */
-#custom-cava, .custom-cava {
+/* Media Visual Capsule Styling */
+#custom-cava-media {
+  padding: 0 4px 0 8px;
+  margin: 3px 0 3px 2px;
+  border-radius: 6px 0 0 6px;
+  background-color: alpha(@foreground, 0.05);
+  color: @accent;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+#custom-cava {
   font-family: "CaskaydiaMono Nerd Font", monospace;
   font-size: 16px;
   letter-spacing: -4px;
   color: @accent;
+  padding: 0 8px 0 4px;
+  margin: 3px 2px 3px 0;
+  border-radius: 0 6px 6px 0;
+  background-color: alpha(@foreground, 0.05);
+  transition: all 0.2s ease;
 }
 
 /* Mouse hover background feedback */
-#custom-cava:hover, .custom-cava:hover,
+#custom-cava-media:hover {
+  background-color: alpha(@foreground, 0.12);
+}
+#custom-cava:hover {
+  background-color: alpha(@foreground, 0.12);
+}
+
 #tray:hover, .tray:hover,
 #custom-cpu:hover, .custom-cpu:hover,
 #memory:hover, .memory:hover,

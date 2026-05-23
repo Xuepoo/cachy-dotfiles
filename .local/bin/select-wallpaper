@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# ~/.local/bin/select-wallpaper
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+
+# 1. Select wallpaper
+if [ -n "$1" ]; then
+    WALLPAPER="$1"
+else
+    # Automatically list and choose wallpaper using fuzzy-finder (preferring fzf)
+    if which fzf >/dev/null 2>&1; then
+        SELECTED=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) | fzf)
+    else
+        echo "Error: fzf is not installed."
+        exit 1
+    fi
+    [ -z "$SELECTED" ] && exit 0
+    WALLPAPER="$SELECTED"
+fi
+
+echo "Selected Wallpaper: $WALLPAPER"
+
+# 2. Transition wallpaper using Awww
+if which awww >/dev/null 2>&1; then
+    awww img "$WALLPAPER"
+elif [ -x /usr/bin/awww ]; then
+    /usr/bin/awww img "$WALLPAPER"
+else
+    echo "Warning: awww is not installed."
+fi
+
+# 3. Generate color scheme using Matugen in forced Dark Mode (-m dark)
+# --source-color-index 0 will automatically choose the most dominant color and prevent interactive prompt
+if which matugen >/dev/null 2>&1; then
+    matugen image "$WALLPAPER" -m dark --source-color-index 0
+elif [ -x /home/fuyu/.local/share/cargo/bin/matugen ]; then
+    /home/fuyu/.local/share/cargo/bin/matugen image "$WALLPAPER" -m dark --source-color-index 0
+else
+    echo "Warning: matugen is not installed."
+fi
+
+echo "Theme successfully updated!"

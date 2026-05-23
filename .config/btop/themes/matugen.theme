@@ -5,71 +5,71 @@
 theme[main_bg]=""
 
 # Main text color
-theme[main_fg]="#dde3ee"
+theme[main_fg]="#dfe2ef"
 
 # Title color for boxes
-theme[title]="#a1c9ff"
+theme[title]="#aac7ff"
 
 # Highlight color for keyboard shortcuts
 theme[hi_fg]="#ffb4ab"
 
 # Background and foreground for selected items
-theme[selected_bg]="#272d36"
-theme[selected_fg]="#a1c9ff"
+theme[selected_bg]="#282d36"
+theme[selected_fg]="#aac7ff"
 
 # Color of inactive/disabled text
-theme[inactive_fg]="#8b919c"
+theme[inactive_fg]="#8d919c"
 
 # Color of text in active graphs
-theme[graph_text]="#c1c7d2"
+theme[graph_text]="#c3c6d3"
 
 # Background color of volume/percentage meters
-theme[meter_bg]="#1c222b"
+theme[meter_bg]="#1e222b"
 
 # Miscellaneous process colors
-theme[proc_misc]="#bbc6ea"
+theme[proc_misc]="#c0c4eb"
 
 # Box borders
-theme[cpu_box]="#a1c9ff"
-theme[mem_box]="#bbc6ea"
-theme[net_box]="#c2c1f9"
-theme[proc_box]="#a1c9ff"
+theme[cpu_box]="#aac7ff"
+theme[mem_box]="#c0c4eb"
+theme[net_box]="#c9bff8"
+theme[proc_box]="#aac7ff"
 
 # Divider lines
-theme[div_line]="#565c66"
+theme[div_line]="#575b66"
 
 # Temperature graphs
-theme[temp_start]="#a1c9ff"
-theme[temp_mid]="#bbc6ea"
+theme[temp_start]="#aac7ff"
+theme[temp_mid]="#c0c4eb"
 theme[temp_end]="#ffb4ab"
 
 # CPU graphs
-theme[cpu_start]="#a1c9ff"
-theme[cpu_mid]="#bbc6ea"
+theme[cpu_start]="#aac7ff"
+theme[cpu_mid]="#c0c4eb"
 theme[cpu_end]="#ffb4ab"
 
 # Memory graphs
-theme[free_start]="#bbc6ea"
-theme[free_mid]="#a1c9ff"
+theme[free_start]="#c0c4eb"
+theme[free_mid]="#aac7ff"
 theme[free_end]="#ffb4ab"
 
-theme[cached_start]="#bbc6ea"
-theme[cached_mid]="#a1c9ff"
+theme[cached_start]="#c0c4eb"
+theme[cached_mid]="#aac7ff"
 theme[cached_end]="#ffb4ab"
 
-theme[available_start]="#bbc6ea"
-theme[available_mid]="#a1c9ff"
+theme[available_start]="#c0c4eb"
+theme[available_mid]="#aac7ff"
 theme[available_end]="#ffb4ab"
 
-theme[used_start]="#bbc6ea"
-theme[used_mid]="#a1c9ff"
+theme[used_start]="#c0c4eb"
+theme[used_mid]="#aac7ff"
 theme[used_end]="#ffb4ab"
 
 # Network graphs
-theme[download_start]="#a1c9ff"
-theme[download_mid]="#bbc6ea"
-theme[download_end]="#c2c1f9"
+theme[download_start]="#aac7ff"
+theme[download_mid]="#c0c4eb"
+theme[download_end]="#c9bff8"
 
-theme[upload_start]="#a1c9ff"
-theme[upload_mid]="#bbc6ea"
-theme[upload_end]="#c2c1f9"
+theme[upload_start]="#aac7ff"
+theme[upload_mid]="#c0c4eb"
+theme[upload_end]="#c9bff8"

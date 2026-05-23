@@ -16,6 +16,10 @@ input_path = "~/.config/swaync/colors-template.css"
 output_path = "~/.config/swaync/colors.css"
 post_hook = "touch ~/.config/swaync/style.css && swaync-client -rs -R"
 
+[templates.starship]
+input_path = "~/.config/starship-template.toml"
+output_path = "~/.config/starship.toml"
+
 [templates.gtk4]
 input_path = "~/.config/gtk-4.0/gtk-template.css"
 output_path = "~/.config/gtk-4.0/gtk.css"

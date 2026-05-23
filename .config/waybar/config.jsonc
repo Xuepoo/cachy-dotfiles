@@ -1,10 +1,11 @@
 {
   "reload_style_on_change": true,
+  "layer": "top",
   "position": "top",
   "spacing": 3,
   "width": 1280,
   "margin": "0px 2px 0 2px",
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
@@ -62,14 +63,25 @@
       " - ": ""
     }
   },
-  "custom/cava": {
-    "exec": "~/.config/waybar/scripts/cava.py",
-    "format": "{}",
+  "custom/cava-media": {
+    "exec": "python3 ~/.config/waybar/scripts/mpd_tooltip.py",
     "return-type": "json",
+    "format": "{}",
+    "interval": 1,
     "tooltip": true,
     "on-click": "mpc prev",
-    "on-click-right": "mpc next",
     "on-click-middle": "mpc toggle",
+    "on-click-right": "mpc next",
+    "on-scroll-up": "mpc volume +2",
+    "on-scroll-down": "mpc volume -2"
+  },
+  "custom/cava": {
+    "exec": "python3 ~/.config/waybar/scripts/cava.py",
+    "format": "{}",
+    "tooltip": false,
+    "on-click": "mpc prev",
+    "on-click-middle": "mpc toggle",
+    "on-click-right": "mpc next",
     "on-scroll-up": "mpc volume +2",
     "on-scroll-down": "mpc volume -2"
   },
@@ -77,7 +89,7 @@
     "format": "{format_source}",
     "format-source": "󰍬",
     "format-source-muted": "󰍭",
-    "on-click": "pavucontrol",
+    "on-click": "hyprctl dispatch exec pavucontrol",
     "on-click-right": "pamixer --default-source -t",
     "on-scroll-up": "pamixer --default-source -i 2",
     "on-scroll-down": "pamixer --default-source -d 2",
@@ -181,7 +193,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "pavucontrol",
+    "on-click": "hyprctl dispatch exec pavucontrol",
     "on-click-right": "pamixer -t",
     "tooltip-format": "{volume}% - {desc}",
     "scroll-step": 2,

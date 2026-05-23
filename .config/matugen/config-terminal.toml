@@ -10,10 +10,6 @@ output_path = "~/.config/ghostty/colors.conf"
 input_path = "~/.config/yazi/flavors/matugen.yazi/flavor-template.toml"
 output_path = "~/.config/yazi/flavors/matugen.yazi/flavor.toml"
 
-[templates.starship]
-input_path = "~/.config/starship-template.toml"
-output_path = "~/.config/starship.toml"
-
 [templates.btop]
 input_path = "~/.config/btop/themes/matugen-template.theme"
 output_path = "~/.config/btop/themes/matugen.theme"
