@@ -1,27 +1,27 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[░▒▓](#aac7ff)\
-[ ](bg:#aac7ff fg:#002a5b)\
-[](bg:#c0c4eb fg:#aac7ff)\
+[░▒▓](#913200)\
+[ ](bg:#913200 fg:#ffffff)\
+[](bg:#6e492a fg:#913200)\
 $directory\
-[](fg:#c0c4eb bg:#005ab4)\
+[](fg:#6e492a bg:#ff8552)\
 $git_branch\
 $git_status\
-[](fg:#005ab4 bg:#282d36)\
+[](fg:#ff8552 bg:#fbdfd5)\
 $nodejs\
 $rust\
 $golang\
 $lua\
 $c\
 $php\
-[](fg:#282d36 bg:#1e222b)\
+[](fg:#fbdfd5 bg:#ffe7df)\
 $time\
-[ ](fg:#1e222b)\
+[ ](fg:#ffe7df)\
 \n$character""" 
 
 [directory]
-style = "fg:#242948 bg:#c0c4eb"
+style = "fg:#ffffff bg:#6e492a"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -34,65 +34,65 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#005ab4"
-format = '[[ $symbol $branch ](fg:#c0c4eb bg:#005ab4)]($style)'
+style = "bg:#ff8552"
+format = '[[ $symbol $branch ](fg:#6e492a bg:#ff8552)]($style)'
 
 [git_status]
-style = "bg:#005ab4"
-format = '[[($all_status$ahead_behind )](fg:#c0c4eb bg:#005ab4)]($style)'
+style = "bg:#ff8552"
+format = '[[($all_status$ahead_behind )](fg:#6e492a bg:#ff8552)]($style)'
 
 [python]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ( \($virtualenv\) )](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ( \($virtualenv\) )](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [java]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [rust]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [nodejs]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [lua]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [c]
 symbol = " "
-style = "bg:#282d36"
-format = '[[ $symbol ($version) ](fg:#c0c4eb bg:#282d36)]($style)'
+style = "bg:#fbdfd5"
+format = '[[ $symbol ($version) ](fg:#6e492a bg:#fbdfd5)]($style)'
 
 [docker_context]
 symbol = " "
-style = "bg:#1e222b"
-format = '[[ $symbol $context ](fg:#c3c6d3 bg:#1e222b)]($style)'
+style = "bg:#ffe7df"
+format = '[[ $symbol $context ](fg:#55433c bg:#ffe7df)]($style)'
 
 [cmd_duration]
 min_time = 2000
-style = "bg:#1e222b"
-format = '[[ 󱎫 $duration ](fg:#c3c6d3 bg:#1e222b)]($style)'
+style = "bg:#ffe7df"
+format = '[[ 󱎫 $duration ](fg:#55433c bg:#ffe7df)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" 
-style = "bg:#1e222b"
-format = '[[  $time ](fg:#c3c6d3 bg:#1e222b)]($style)'
+style = "bg:#ffe7df"
+format = '[[  $time ](fg:#55433c bg:#ffe7df)]($style)'
 
 [character]
-success_symbol = "[](bold fg:#aac7ff) "
-error_symbol = "[](bold fg:#ffb4ab) "
-vimcmd_symbol = "[](bold fg:#c0c4eb)"
+success_symbol = "[](bold fg:#913200) "
+error_symbol = "[](bold fg:#a6050f) "
+vimcmd_symbol = "[](bold fg:#6e492a)"
