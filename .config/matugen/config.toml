@@ -27,3 +27,7 @@ output_path = "~/.config/gtk-4.0/gtk.css"
 [templates.gtk3]
 input_path = "~/.config/gtk-4.0/gtk-template.css"
 output_path = "~/.config/gtk-3.0/gtk.css"
+
+[templates.fuzzel]
+input_path = "~/.config/fuzzel/fuzzel-template.ini"
+output_path = "~/.config/fuzzel/fuzzel.ini"

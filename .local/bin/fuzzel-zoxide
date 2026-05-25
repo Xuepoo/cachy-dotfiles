@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# ~/.local/bin/fuzzel-zoxide — Search directories using zoxide + fuzzel (optimized)
+
+# Add /mnt/data top-level directories to zoxide list
+{
+    zoxide query --list
+    [ -d /mnt/data ] && ls -d /mnt/data/*/ 2>/dev/null
+} | grep -E "^$HOME|^/mnt/data" | sort -u | sed "s|^$HOME/|~/|; s|^/mnt/data/|DATA:|" | fuzzel --dmenu --prompt="Jump > " --lines 15 | {
+    read -r line
+    [ -z "$line" ] && exit 0
+
+    # Expand shortened paths back
+    line=$(echo "$line" | sed "s|^~|$HOME|" | sed "s|^DATA:|/mnt/data/|")
+
+    ghostty --working-directory="$line"
+}
