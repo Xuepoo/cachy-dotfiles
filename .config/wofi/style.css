@@ -1,64 +1,75 @@
-/* ~/.config/wofi/style.css - Dynamic Matugen */
-@import "/home/fuyu/.config/waybar/colors.css";
+/* ~/.config/wofi/style-template.css */
+/* Matugen template for wofi — premium glassmorphism, adaptive contrast, modern floating UI */
 
-window {
-    margin: 0px;
-    border: 2px solid @accent;
-    /* Use foreground color (dark in light mode) at 85% opacity for a beautiful
-       deep, readable background regardless of light/dark mode */
-    background-color: alpha(@foreground, 0.85);
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
-    border-radius: 12px;
+#window {
+    font-family: "CaskaydiaMono Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    /* Native GTK3 alpha() function to achieve robust transparency and contrast */
+    background-color: alpha(#f8f9ff, 0.82);
+    color: #161c24;
+    border-radius: 20px;
+    border: 2px solid alpha(#686d77, 0.3);
 }
 
 #outer-box {
-    margin: 5px;
-    padding: 10px;
+    margin: 16px;
+    padding: 0;
+    background-color: transparent;
 }
 
 #input {
-    margin: 5px 10px;
-    border: none;
-    /* Input box: use background color (light in light mode) for contrast */
-    color: @foreground;
-    background-color: alpha(@background, 0.15);
-    border: 1px solid alpha(@accent, 0.5);
-    border-radius: 8px;
-    padding: 10px;
-    /* Text in input should be light since container bg is dark */
-    color: @background;
+    margin: 8px 12px 16px 12px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid alpha(#686d77, 0.2);
+    background-color: alpha(#e7ecf8, 0.6);
+    color: #161c24;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+#input:focus {
+    border: 1.5px solid #005394;
+    background-color: #e7ecf8;
 }
 
 #inner-box {
-    margin: 10px;
+    margin: 4px 8px;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0;
+    background-color: transparent;
 }
 
 #entry {
-    padding: 10px;
-    border-radius: 8px;
-    /* Entry text: use background color (light) for readability on dark container */
-    color: alpha(@background, 0.9);
-    transition: background-color 0.2s;
+    padding: 10px 16px;
+    margin: 4px 0;
+    border-radius: 12px;
+    background-color: transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+#entry:hover {
+    background-color: alpha(#161c24, 0.06);
 }
 
 #entry:selected {
-    background-color: alpha(@accent, 0.3);
-    color: @background;
-    outline: none;
+    background-color: #005394;
+    color: #ffffff;
 }
 
 #text {
-    margin-left: 10px;
-    vertical-align: middle;
+    margin: 4px 0;
+    color: inherit;
+    font-weight: 500;
+}
+
+#text:selected {
+    color: inherit;
 }
 
 #img {
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-}
-
-#entry:focus {
-    outline: none;
+    margin-right: 12px;
 }

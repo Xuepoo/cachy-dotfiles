@@ -5,7 +5,7 @@
   "spacing": 3,
   "width": 1280,
   "margin": "0px 2px 0 2px",
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
+  "modules-left": ["custom/hermes-pet", "hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
@@ -62,6 +62,16 @@
       "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
       " - ": ""
     }
+  },
+  "custom/hermes-pet": {
+    "exec": "~/.config/waybar/scripts/hermes-pet.sh",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 1,
+    "tooltip": true,
+    "on-click": "hermes-input",
+    "on-click-right": "ghostty --working-directory=/home/fuyu -e hermes --continue",
+    "on-click-middle": "xdg-open /tmp/hermes/last-result.txt 2>/dev/null || notify-send Hermes 'No result yet'"
   },
   "custom/cava-media": {
     "exec": "python3 ~/.config/waybar/scripts/mpd_tooltip.py",

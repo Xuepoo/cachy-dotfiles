@@ -1,20 +1,15 @@
-# wofi config
-show=drun
-width=30%
+width=600
 height=400
-always_parse_args=true
-show_all=false
-print_command=true
-insensitive=true
-allow_images=true
 location=center
+show=drun
+prompt=Search...
+matching=fuzzy
+allow_markup=true
 no_actions=true
 halign=fill
 orientation=vertical
-key_exit=Escape
-prompt=
-matching=fuzzy
-sort_order=default
-# 开启以下选项可能有助于焦点处理
-layer=overlay
-filter_rate=100
+content_halign=fill
+insensitive=true
+allow_images=true
+image_size=24
+gtk_dark=true

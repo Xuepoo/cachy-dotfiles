@@ -95,9 +95,9 @@ window#waybar {
 #window, .window,
 #pulseaudio, .pulseaudio,
 #mpris, .mpris,
-#custom-updatespacman, .custom-updatespacman,
 #custom-darkmode, .custom-darkmode,
-#custom-notification, .custom-notification {
+#custom-notification, .custom-notification,
+#custom-hermes-pet, .custom-hermes-pet {
   padding: 0 6px;
   margin: 3px 2px;
   border-radius: 6px; /* Unified border radius */
@@ -149,7 +149,8 @@ window#waybar {
 #pulseaudio.microphone:hover, .pulseaudio.microphone:hover,
 #window:hover, .window:hover,
 #pulseaudio:hover, .pulseaudio:hover,
-#custom-notification:hover, .custom-notification:hover {
+#custom-notification:hover, .custom-notification:hover,
+#custom-hermes-pet:hover, .custom-hermes-pet:hover {
   background-color: alpha(@foreground, 0.1);
 }
 
@@ -209,4 +210,29 @@ window#waybar {
 #custom-expand-icon {
   color: @accent;
   padding-right: 3px;
+}
+
+/* Hermes pet (animated nerd font) */
+#custom-hermes-pet {
+  font-size: 16px;
+  padding: 0 6px;
+  margin: 3px 2px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+#custom-hermes-pet.idle {
+  color: @foreground;
+  opacity: 0.8;
+}
+#custom-hermes-pet.thinking {
+  color: @yellow;
+}
+#custom-hermes-pet.working {
+  color: @accent;
+}
+#custom-hermes-pet.done {
+  color: @green;
+}
+#custom-hermes-pet.error {
+  color: @red;
 }

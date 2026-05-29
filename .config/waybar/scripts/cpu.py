@@ -4,8 +4,8 @@ import json
 import psutil
 
 def get_cpu_info():
-    # To get CPU usage quickly without blocking Waybar for long, we measure over 0.2 seconds.
-    cpu_usage = psutil.cpu_percent(interval=0.2)
+    # Measure over 0.05 seconds to avoid blocking Waybar UI thread.
+    cpu_usage = psutil.cpu_percent(interval=0.05)
     
     # Get average CPU frequency
     try:
