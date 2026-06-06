@@ -5,7 +5,7 @@
   "spacing": 3,
   "width": 1280,
   "margin": "0px 2px 0 2px",
-  "modules-left": ["custom/hermes-pet", "hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
