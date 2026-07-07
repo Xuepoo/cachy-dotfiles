@@ -5,10 +5,10 @@
     font-family: "CaskaydiaMono Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
     font-size: 14px;
     /* Native GTK3 alpha() function to achieve robust transparency and contrast */
-    background-color: alpha(#f9f9ff, 0.82);
-    color: #171c25;
+    background-color: alpha(#f0fbff, 0.82);
+    color: #121d21;
     border-radius: 20px;
-    border: 2px solid alpha(#696d78, 0.3);
+    border: 2px solid alpha(#636f73, 0.3);
 }
 
 #outer-box {
@@ -21,16 +21,16 @@
     margin: 8px 12px 16px 12px;
     padding: 10px 16px;
     border-radius: 12px;
-    border: 1px solid alpha(#696d78, 0.2);
-    background-color: alpha(#e8ecf9, 0.6);
-    color: #171c25;
+    border: 1px solid alpha(#636f73, 0.2);
+    background-color: alpha(#e2eef3, 0.6);
+    color: #121d21;
     font-size: 14px;
     transition: all 0.2s ease-in-out;
 }
 
 #input:focus {
-    border: 1.5px solid #0050a1;
-    background-color: #e8ecf9;
+    border: 1.5px solid #005a6a;
+    background-color: #e2eef3;
 }
 
 #inner-box {
@@ -52,11 +52,11 @@
 }
 
 #entry:hover {
-    background-color: alpha(#171c25, 0.06);
+    background-color: alpha(#121d21, 0.06);
 }
 
 #entry:selected {
-    background-color: #0050a1;
+    background-color: #005a6a;
     color: #ffffff;
 }
 

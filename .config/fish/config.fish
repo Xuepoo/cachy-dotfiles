@@ -22,3 +22,11 @@ tv init fish | source
 atuin init fish | source
 hermes completion fish | source
 
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/fuyu/.local/bin" $PATH
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<
