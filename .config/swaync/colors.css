@@ -1,6 +1,6 @@
 /* ~/.config/swaync/colors-template.css */
-@define-color border-color #dae7eb;
-@define-color accent #005a6a;
-@define-color bg-color #e2eef3;
-@define-color bg-notification #e9f6fa;
-@define-color fg-color #121d21;
+@define-color border-color #e0e5f1;
+@define-color accent #005394;
+@define-color bg-color #e7ecf8;
+@define-color bg-notification #eff4ff;
+@define-color fg-color #161c24;

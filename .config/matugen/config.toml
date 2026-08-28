@@ -8,8 +8,8 @@ output_path = "~/.config/waybar/colors.css"
 post_hook = "touch ~/.config/waybar/style.css && killall -USR2 waybar"
 
 [templates.hyprland]
-input_path = "~/.config/hypr/colors-template.conf"
-output_path = "~/.config/hypr/colors.conf"
+input_path = "~/.config/hypr/colors-template.lua"
+output_path = "~/.config/hypr/colors.lua"
 
 [templates.swaync]
 input_path = "~/.config/swaync/colors-template.css"

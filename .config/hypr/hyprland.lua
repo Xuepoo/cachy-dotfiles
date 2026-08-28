@@ -212,11 +212,11 @@ local mainMod = "SUPER"
 
 -- Core application & window binds
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + Q", hl.dsp.window.kill())
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exit())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("fish -c changewp"))
@@ -259,8 +259,8 @@ hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "d" }))
 
 hl.bind(mainMod .. " + I", hl.dsp.focus({ workspace = "+1" }))
 hl.bind(mainMod .. " + U", hl.dsp.focus({ workspace = "-1" }))
-hl.bind(mainMod .. " + PageUp",   hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + PageDown", hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + Prior",     hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mainMod .. " + Next",      hl.dsp.focus({ workspace = "-1" }))
 hl.bind(mainMod .. " + Tab",         hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ workspace = "e+1" }))
 

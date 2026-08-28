@@ -5,7 +5,7 @@
   "spacing": 3,
   "width": 1280,
   "margin": "0px 2px 0 2px",
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
+  "modules-left": ["ext/workspaces", "hyprland/window", "custom/cava-media", "custom/cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
@@ -20,6 +20,28 @@
     "battery",
     "custom/notification"
   ],
+  "ext/workspaces": {
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl repl \"hl.dispatch(hl.dsp.focus({ workspace = 'e+1' }))\"",
+    "on-scroll-down": "hyprctl repl \"hl.dispatch(hl.dsp.focus({ workspace = 'e-1' }))\"",
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": "",
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    }
+  },
   "hyprland/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,
@@ -99,7 +121,7 @@
     "format": "{format_source}",
     "format-source": "󰍬",
     "format-source-muted": "󰍭",
-    "on-click": "hyprctl dispatch exec pavucontrol",
+    "on-click": "pavucontrol",
     "on-click-right": "pamixer --default-source -t",
     "on-scroll-up": "pamixer --default-source -i 2",
     "on-scroll-down": "pamixer --default-source -d 2",
@@ -203,7 +225,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "hyprctl dispatch exec pavucontrol",
+    "on-click": "pavucontrol",
     "on-click-right": "pamixer -t",
     "tooltip-format": "{volume}% - {desc}",
     "scroll-step": 2,

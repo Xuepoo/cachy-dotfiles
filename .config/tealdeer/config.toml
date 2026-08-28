@@ -1,29 +1,29 @@
 [style.description]
-foreground = { rgb = [216, 229, 233] }
+foreground = { rgb = [222, 226, 238] }
 underline = false
 bold = false
 italic = false
 
 [style.command_name]
-foreground = { rgb = [0, 217, 253] }
+foreground = { rgb = [163, 201, 255] }
 underline = false
 bold = true
 italic = false
 
 [style.example_text]
-foreground = { rgb = [168, 203, 226] }
+foreground = { rgb = [188, 197, 235] }
 underline = false
 bold = false
 italic = false
 
 [style.example_code]
-foreground = { rgb = [216, 229, 233] }
+foreground = { rgb = [222, 226, 238] }
 underline = false
 bold = false
 italic = false
 
 [style.example_variable]
-foreground = { rgb = [165, 202, 245] }
+foreground = { rgb = [196, 193, 249] }
 underline = true
 bold = false
 italic = false
