@@ -1,0 +1,3 @@
+# 源站通用占位封面 md5（ff 视为“无封面”，回落到 imgs/default.png）
+# 每行一个 md5，允许 # 注释行
+d7b7204fba0b9dc5d94b8c31e68ece75
